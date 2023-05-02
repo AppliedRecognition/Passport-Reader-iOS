@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "blinkid-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/BlinkID/blinkid-ios",
+      "state" : {
+        "revision" : "6ab55658194d86315e82560a49fd45706f5929a6",
+        "version" : "6.1.2"
+      }
+    },
+    {
+      "identity" : "nfcpassportreader",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AndyQ/NFCPassportReader",
+      "state" : {
+        "revision" : "84b4c823ead7f7f61049302f4100ed21db32f945",
+        "version" : "2.0.2"
+      }
+    },
+    {
+      "identity" : "normal-distribution-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AppliedRecognition/Normal-Distribution-Swift",
+      "state" : {
+        "revision" : "45ad4b2a1a3f65172ea6b6a6b5fc4674e99cfe6a",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "openssl",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/OpenSSL.git",
+      "state" : {
+        "revision" : "87f41bf9488e7dd2b0de2ab97cb3eafc7304e0e6",
+        "version" : "1.1.2000"
+      }
+    }
+  ],
+  "version" : 2
+}
