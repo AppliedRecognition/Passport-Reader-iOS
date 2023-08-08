@@ -21,7 +21,7 @@ struct ContentView: View {
     @State var showingCapturedDocument: Bool = false
     @State var faceDetectionError: Error?
     
-    var passportReader: PassportReader = PassportReader(logLevel: .error)
+    var passportReader: PassportReader = PassportReader(logLevel: .debug, masterListURL: Bundle.main.url(forResource: "MasterList", withExtension: "pem"))
     
     var body: some View {
         NavigationView {

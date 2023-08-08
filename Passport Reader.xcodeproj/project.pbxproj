@@ -27,6 +27,7 @@
 		3BC1CBCC2A0101CB0040FD69 /* MRZScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBCB2A0101CB0040FD69 /* MRZScanner.swift */; };
 		3BC1CBCE2A0119270040FD69 /* MRZData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBCD2A0119260040FD69 /* MRZData.swift */; };
 		3BC1CBD02A011A950040FD69 /* MRZChecksum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBCF2A011A950040FD69 /* MRZChecksum.swift */; };
+		3BFEAEB42A819FF800064997 /* MasterList.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3BFEAEB32A819FF800064997 /* MasterList.pem */; };
 		C8420AB4F242412CD215A43F /* Pods_Passport_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E43404143A645D3E1DDAFC /* Pods_Passport_Reader.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		3BC1CBCB2A0101CB0040FD69 /* MRZScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZScanner.swift; sourceTree = "<group>"; };
 		3BC1CBCD2A0119260040FD69 /* MRZData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZData.swift; sourceTree = "<group>"; };
 		3BC1CBCF2A011A950040FD69 /* MRZChecksum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZChecksum.swift; sourceTree = "<group>"; };
+		3BFEAEB32A819FF800064997 /* MasterList.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MasterList.pem; sourceTree = "<group>"; };
 		E2A874C5E957CFE4579D06C2 /* Pods-Passport Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport Reader.debug.xcconfig"; path = "Target Support Files/Pods-Passport Reader/Pods-Passport Reader.debug.xcconfig"; sourceTree = "<group>"; };
 		F1773535619F97C8CA7B1B75 /* Pods-Passport Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport Reader.release.xcconfig"; path = "Target Support Files/Pods-Passport Reader/Pods-Passport Reader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 		3B94710B29FC642B0029C456 /* Passport Reader */ = {
 			isa = PBXGroup;
 			children = (
+				3BFEAEB32A819FF800064997 /* MasterList.pem */,
 				3BC1CBC32A002FD10040FD69 /* Passport Reader.entitlements */,
 				3BC1CBBC29FFF3C40040FD69 /* Passport-Reader-Info.plist */,
 				3BC1CBBA29FFF3960040FD69 /* Ver-ID identity.p12 */,
@@ -213,6 +216,7 @@
 			files = (
 				3B94711429FC642D0029C456 /* Preview Assets.xcassets in Resources */,
 				3B94711129FC642D0029C456 /* Assets.xcassets in Resources */,
+				3BFEAEB42A819FF800064997 /* MasterList.pem in Resources */,
 				3BC1CBBB29FFF3960040FD69 /* Ver-ID identity.p12 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,8 +515,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BlinkID/blinkid-ios";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.1.2;
+				branch = master;
+				kind = branch;
 			};
 		};
 		3B91013029FC7219008E5D8E /* XCRemoteSwiftPackageReference "NFCPassportReader" */ = {
@@ -527,8 +531,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppliedRecognition/Normal-Distribution-Swift";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

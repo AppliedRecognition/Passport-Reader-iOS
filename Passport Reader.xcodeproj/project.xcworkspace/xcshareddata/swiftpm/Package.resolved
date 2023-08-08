@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AppliedRecognition/Normal-Distribution-Swift",
       "state" : {
-        "branch" : "master",
-        "revision" : "45ad4b2a1a3f65172ea6b6a6b5fc4674e99cfe6a"
+        "revision" : "45ad4b2a1a3f65172ea6b6a6b5fc4674e99cfe6a",
+        "version" : "1.1.0"
       }
     },
     {
