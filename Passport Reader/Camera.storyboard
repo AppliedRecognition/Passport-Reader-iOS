@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Camera View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="CameraViewController" customModule="Passport_Reader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68u-As-xKd" customClass="CameraPreviewView" customModule="Passport_Reader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kX-lC-YCt" customClass="GradientView" customModule="Passport_Reader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="170.33333333333334"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="diagonalMode" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the text on the bottom of your document's picture page" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znA-l1-Qms">
+                                <rect key="frame" x="16" y="91" width="361" height="40.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgo-3x-W41">
+                                <rect key="frame" x="158" y="767" width="77" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Lj5-ch-o4C"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Sgo-3x-W41" secondAttribute="bottom" constant="16" id="6bz-Uf-jXD"/>
+                            <constraint firstItem="znA-l1-Qms" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="GgX-hF-ETq"/>
+                            <constraint firstItem="znA-l1-Qms" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="KGh-f9-eaZ"/>
+                            <constraint firstAttribute="trailing" secondItem="6kX-lC-YCt" secondAttribute="trailing" id="Ocz-a7-8TG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="znA-l1-Qms" secondAttribute="trailing" id="V9E-up-yvk"/>
+                            <constraint firstItem="6kX-lC-YCt" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Za8-VV-Rwy"/>
+                            <constraint firstAttribute="trailing" secondItem="68u-As-xKd" secondAttribute="trailing" id="ePL-O5-sMs"/>
+                            <constraint firstItem="Sgo-3x-W41" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="kpU-UW-YJw"/>
+                            <constraint firstItem="68u-As-xKd" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="ntA-aN-yHZ"/>
+                            <constraint firstItem="6kX-lC-YCt" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="pS0-7t-sED"/>
+                            <constraint firstItem="6kX-lC-YCt" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.2" id="vxy-mb-EJO"/>
+                            <constraint firstItem="68u-As-xKd" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="xqs-EY-nCJ"/>
+                            <constraint firstAttribute="bottom" secondItem="68u-As-xKd" secondAttribute="bottom" id="zLS-QF-iaa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cameraPreviewView" destination="68u-As-xKd" id="2fk-CV-hqC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.1679389312977" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+</document>

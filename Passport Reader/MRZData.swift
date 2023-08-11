@@ -26,7 +26,7 @@ struct MRZData {
     }()
     
     init?(_ mrz: String) {
-        let text = mrz.replacingOccurrences(of: "‹", with: "<")
+        let text = mrz.replacingOccurrences(of: #"[‹≤]"#, with: "<", options: .regularExpression, range: nil)
         if !text.hasPrefix("P<") {
             return nil
         }

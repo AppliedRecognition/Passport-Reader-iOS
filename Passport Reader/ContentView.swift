@@ -14,14 +14,13 @@ struct ContentView: View {
     
     @StateObject var bac: BAC = BAC()
     @StateObject var verIDLoader: VerIDLoader = VerIDLoader()
-    @StateObject var microblinkKeyLoader: MicroblinkKeyLoader = MicroblinkKeyLoader()
     @State var capturedDocument: NFCPassportModel?
     @State var documentCaptured: Bool = false
     @State var faceCapture: FaceCapture?
     @State var showingCapturedDocument: Bool = false
     @State var faceDetectionError: Error?
     
-    var passportReader: PassportReader = PassportReader(logLevel: .debug, masterListURL: Bundle.main.url(forResource: "MasterList", withExtension: "pem"))
+    var passportReader: PassportReader = PassportReader(logLevel: .error, masterListURL: Bundle.main.url(forResource: "MasterList", withExtension: "pem"))
     
     var body: some View {
         NavigationView {
@@ -33,66 +32,53 @@ struct ContentView: View {
                         Image("Passport")
                     }.ignoresSafeArea()
                 }.ignoresSafeArea()
-                if let result = self.microblinkKeyLoader.result, case .success(_) = result {
-                    if let faceDetectionError = self.faceDetectionError {
-                        Text(faceDetectionError.localizedDescription)
-                    } else if let document = self.capturedDocument, let faceCapture = self.faceCapture, self.showingCapturedDocument {
-                        NavigationLink(isActive: self.$showingCapturedDocument) {
-                            let name = "\(document.firstName) \(document.lastName)"
-                            PassportView(faceCapture: faceCapture, name: name, details: document.list)
-                        } label: {
-                            EmptyView()
-                        }
-                    } else if self.capturedDocument != nil && self.faceCapture == nil {
-                        ProgressView {
-                            Text("Detecting a face")
-                        }.progressViewStyle(.circular)
-                    } else {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                TextField(text: self.$bac.documentNumber, prompt: Text("Document number")) {
-                                    Text("Document number")
-                                }
-                                .textFieldStyle(.roundedBorder)
-                                .autocorrectionDisabled()
-                                .textInputAutocapitalization(.characters)
-                                .padding(.bottom, 8)
-                                .frame(maxWidth: 300)
-                                Button {
-                                    self.bac.captureMRZ()
-                                } label: {
-                                    Image(systemName: "camera.fill").imageScale(.large)
-                                }
-                                .padding(.bottom, 8)
-                                Spacer()
-                            }
-                            DatePicker("Date of birth", selection: self.$bac.dateOfBirth, displayedComponents: .date).datePickerStyle(.compact).frame(maxWidth: 340)
-                            DatePicker("Date of expiry", selection: self.$bac.dateOfExpiry, displayedComponents: .date).datePickerStyle(.compact).frame(maxWidth: 340)
-                            Button {
-                                self.readPassport()
-                            } label: {
-                                Text("Read passport")
-                                Image(systemName: "wave.3.right")
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .disabled(self.bac.documentNumber.trimmingCharacters(in: .alphanumerics.inverted).isEmpty)
-                            .padding(.top, 16)
-                            Spacer()
-                        }
-                        .navigationTitle("Passport Reader")
-                        .padding()
-                        //                    .task {
-                        //                        if #available(iOS 16, *), DataScannerViewController.isSupported && DataScannerViewController.isAvailable {
-                        //                            self.isScanningText.toggle()
-                        //                        }
-                        //                    }
+                if let faceDetectionError = self.faceDetectionError {
+                    Text(faceDetectionError.localizedDescription)
+                } else if let document = self.capturedDocument, let faceCapture = self.faceCapture, self.showingCapturedDocument {
+                    NavigationLink(isActive: self.$showingCapturedDocument) {
+                        let name = "\(document.firstName) \(document.lastName)"
+                        PassportView(faceCapture: faceCapture, name: name, details: document.list)
+                    } label: {
+                        EmptyView()
                     }
-                } else if microblinkKeyLoader.result == nil {
+                } else if self.capturedDocument != nil && self.faceCapture == nil {
                     ProgressView {
-                        Text("Downloading licence keys")
+                        Text("Detecting a face")
                     }.progressViewStyle(.circular)
                 } else {
-                    Text("Failed to download BlinkID licence key")
+                    VStack(alignment: .leading) {
+                        HStack {
+                            TextField(text: self.$bac.documentNumber, prompt: Text("Document number")) {
+                                Text("Document number")
+                            }
+                            .textFieldStyle(.roundedBorder)
+                            .autocorrectionDisabled()
+                            .textInputAutocapitalization(.characters)
+                            .padding(.bottom, 8)
+                            .frame(maxWidth: 300)
+                            Button {
+                                self.bac.captureMRZ()
+                            } label: {
+                                Image(systemName: "camera.fill").imageScale(.large)
+                            }
+                            .padding(.bottom, 8)
+                            Spacer()
+                        }
+                        DatePicker("Date of birth", selection: self.$bac.dateOfBirth, displayedComponents: .date).datePickerStyle(.compact).frame(maxWidth: 340)
+                        DatePicker("Date of expiry", selection: self.$bac.dateOfExpiry, displayedComponents: .date).datePickerStyle(.compact).frame(maxWidth: 340)
+                        Button {
+                            self.readPassport()
+                        } label: {
+                            Text("Read passport")
+                            Image(systemName: "wave.3.right")
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .disabled(self.bac.documentNumber.trimmingCharacters(in: .alphanumerics.inverted).isEmpty)
+                        .padding(.top, 16)
+                        Spacer()
+                    }
+                    .navigationTitle("Passport Reader")
+                    .padding()
                 }
             }
         }

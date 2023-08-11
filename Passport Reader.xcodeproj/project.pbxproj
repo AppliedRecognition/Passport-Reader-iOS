@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3B91012C29FC6F76008E5D8E /* BAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91012B29FC6F76008E5D8E /* BAC.swift */; };
-		3B91012F29FC71FA008E5D8E /* BlinkID in Frameworks */ = {isa = PBXBuildFile; productRef = 3B91012E29FC71FA008E5D8E /* BlinkID */; };
 		3B91013229FC7219008E5D8E /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = 3B91013129FC7219008E5D8E /* NFCPassportReader */; };
 		3B91013429FC7E76008E5D8E /* PassportDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91013329FC7E76008E5D8E /* PassportDetailsView.swift */; };
 		3B91013629FD59AC008E5D8E /* NFCPassportModel+VerID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91013529FD59AC008E5D8E /* NFCPassportModel+VerID.swift */; };
@@ -20,7 +19,6 @@
 		3BC1CBB929FFE6C30040FD69 /* PassportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBB829FFE6C30040FD69 /* PassportView.swift */; };
 		3BC1CBBB29FFF3960040FD69 /* Ver-ID identity.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 3BC1CBBA29FFF3960040FD69 /* Ver-ID identity.p12 */; };
 		3BC1CBBE29FFFAB20040FD69 /* VerIDSessionRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBBD29FFFAB20040FD69 /* VerIDSessionRunner.swift */; };
-		3BC1CBC02A0008940040FD69 /* MicroblinkKeyLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBBF2A0008940040FD69 /* MicroblinkKeyLoader.swift */; };
 		3BC1CBC52A0035180040FD69 /* UserDefaults+PassportReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBC42A0035180040FD69 /* UserDefaults+PassportReader.swift */; };
 		3BC1CBC72A004ABA0040FD69 /* FaceComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBC62A004ABA0040FD69 /* FaceComparisonView.swift */; };
 		3BC1CBCA2A006D0F0040FD69 /* NormalDistribution in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC1CBC92A006D0F0040FD69 /* NormalDistribution */; };
@@ -28,6 +26,11 @@
 		3BC1CBCE2A0119270040FD69 /* MRZData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBCD2A0119260040FD69 /* MRZData.swift */; };
 		3BC1CBD02A011A950040FD69 /* MRZChecksum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBCF2A011A950040FD69 /* MRZChecksum.swift */; };
 		3BFEAEB42A819FF800064997 /* MasterList.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3BFEAEB32A819FF800064997 /* MasterList.pem */; };
+		3BFEAEBA2A85651800064997 /* CameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAEB92A85651800064997 /* CameraControl.swift */; };
+		3BFEAEBC2A8578C200064997 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAEBB2A8578C200064997 /* CameraViewController.swift */; };
+		3BFEAEC02A85806B00064997 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAEBF2A85806B00064997 /* CameraPreviewView.swift */; };
+		3BFEAEC22A86333800064997 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFEAEC12A86333800064997 /* Camera.storyboard */; };
+		3BFEAEC42A8633EE00064997 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAEC32A8633EE00064997 /* GradientView.swift */; };
 		C8420AB4F242412CD215A43F /* Pods_Passport_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E43404143A645D3E1DDAFC /* Pods_Passport_Reader.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +49,6 @@
 		3BC1CBBA29FFF3960040FD69 /* Ver-ID identity.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ver-ID identity.p12"; sourceTree = "<group>"; };
 		3BC1CBBC29FFF3C40040FD69 /* Passport-Reader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Passport-Reader-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3BC1CBBD29FFFAB20040FD69 /* VerIDSessionRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerIDSessionRunner.swift; sourceTree = "<group>"; };
-		3BC1CBBF2A0008940040FD69 /* MicroblinkKeyLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroblinkKeyLoader.swift; sourceTree = "<group>"; };
 		3BC1CBC32A002FD10040FD69 /* Passport Reader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Passport Reader.entitlements"; sourceTree = "<group>"; };
 		3BC1CBC42A0035180040FD69 /* UserDefaults+PassportReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PassportReader.swift"; sourceTree = "<group>"; };
 		3BC1CBC62A004ABA0040FD69 /* FaceComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceComparisonView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,11 @@
 		3BC1CBCD2A0119260040FD69 /* MRZData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZData.swift; sourceTree = "<group>"; };
 		3BC1CBCF2A011A950040FD69 /* MRZChecksum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZChecksum.swift; sourceTree = "<group>"; };
 		3BFEAEB32A819FF800064997 /* MasterList.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MasterList.pem; sourceTree = "<group>"; };
+		3BFEAEB92A85651800064997 /* CameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControl.swift; sourceTree = "<group>"; };
+		3BFEAEBB2A8578C200064997 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		3BFEAEBF2A85806B00064997 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		3BFEAEC12A86333800064997 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		3BFEAEC32A8633EE00064997 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		E2A874C5E957CFE4579D06C2 /* Pods-Passport Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport Reader.debug.xcconfig"; path = "Target Support Files/Pods-Passport Reader/Pods-Passport Reader.debug.xcconfig"; sourceTree = "<group>"; };
 		F1773535619F97C8CA7B1B75 /* Pods-Passport Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport Reader.release.xcconfig"; path = "Target Support Files/Pods-Passport Reader/Pods-Passport Reader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B91012F29FC71FA008E5D8E /* BlinkID in Frameworks */,
 				3B91013229FC7219008E5D8E /* NFCPassportReader in Frameworks */,
 				C8420AB4F242412CD215A43F /* Pods_Passport_Reader.framework in Frameworks */,
 				3BC1CBCA2A006D0F0040FD69 /* NormalDistribution in Frameworks */,
@@ -108,12 +114,16 @@
 				3BC1CBB629FFC4A40040FD69 /* VerIDLoader.swift */,
 				3BC1CBB829FFE6C30040FD69 /* PassportView.swift */,
 				3BC1CBBD29FFFAB20040FD69 /* VerIDSessionRunner.swift */,
-				3BC1CBBF2A0008940040FD69 /* MicroblinkKeyLoader.swift */,
 				3BC1CBC42A0035180040FD69 /* UserDefaults+PassportReader.swift */,
 				3BC1CBC62A004ABA0040FD69 /* FaceComparisonView.swift */,
 				3BC1CBCB2A0101CB0040FD69 /* MRZScanner.swift */,
 				3BC1CBCD2A0119260040FD69 /* MRZData.swift */,
 				3BC1CBCF2A011A950040FD69 /* MRZChecksum.swift */,
+				3BFEAEB92A85651800064997 /* CameraControl.swift */,
+				3BFEAEBB2A8578C200064997 /* CameraViewController.swift */,
+				3BFEAEBF2A85806B00064997 /* CameraPreviewView.swift */,
+				3BFEAEC12A86333800064997 /* Camera.storyboard */,
+				3BFEAEC32A8633EE00064997 /* GradientView.swift */,
 			);
 			path = "Passport Reader";
 			sourceTree = "<group>";
@@ -163,7 +173,6 @@
 			);
 			name = "Passport Reader";
 			packageProductDependencies = (
-				3B91012E29FC71FA008E5D8E /* BlinkID */,
 				3B91013129FC7219008E5D8E /* NFCPassportReader */,
 				3BC1CBC92A006D0F0040FD69 /* NormalDistribution */,
 			);
@@ -196,7 +205,6 @@
 			);
 			mainGroup = 3B94710029FC642B0029C456;
 			packageReferences = (
-				3B91012D29FC71FA008E5D8E /* XCRemoteSwiftPackageReference "blinkid-ios" */,
 				3B91013029FC7219008E5D8E /* XCRemoteSwiftPackageReference "NFCPassportReader" */,
 				3BC1CBC82A006D0F0040FD69 /* XCRemoteSwiftPackageReference "Normal-Distribution-Swift" */,
 			);
@@ -218,6 +226,7 @@
 				3B94711129FC642D0029C456 /* Assets.xcassets in Resources */,
 				3BFEAEB42A819FF800064997 /* MasterList.pem in Resources */,
 				3BC1CBBB29FFF3960040FD69 /* Ver-ID identity.p12 in Resources */,
+				3BFEAEC22A86333800064997 /* Camera.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,13 +301,16 @@
 				3BC1CBD02A011A950040FD69 /* MRZChecksum.swift in Sources */,
 				3BC1CBC72A004ABA0040FD69 /* FaceComparisonView.swift in Sources */,
 				3BC1CBB929FFE6C30040FD69 /* PassportView.swift in Sources */,
+				3BFEAEC42A8633EE00064997 /* GradientView.swift in Sources */,
 				3BC1CBC52A0035180040FD69 /* UserDefaults+PassportReader.swift in Sources */,
 				3BC1CBBE29FFFAB20040FD69 /* VerIDSessionRunner.swift in Sources */,
+				3BFEAEC02A85806B00064997 /* CameraPreviewView.swift in Sources */,
 				3BC1CBCE2A0119270040FD69 /* MRZData.swift in Sources */,
-				3BC1CBC02A0008940040FD69 /* MicroblinkKeyLoader.swift in Sources */,
+				3BFEAEBA2A85651800064997 /* CameraControl.swift in Sources */,
 				3B94710F29FC642B0029C456 /* ContentView.swift in Sources */,
 				3B94710D29FC642B0029C456 /* Passport_ReaderApp.swift in Sources */,
 				3B91012C29FC6F76008E5D8E /* BAC.swift in Sources */,
+				3BFEAEBC2A8578C200064997 /* CameraViewController.swift in Sources */,
 				3BC1CBCC2A0101CB0040FD69 /* MRZScanner.swift in Sources */,
 				3B91013629FD59AC008E5D8E /* NFCPassportModel+VerID.swift in Sources */,
 			);
@@ -511,14 +523,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3B91012D29FC71FA008E5D8E /* XCRemoteSwiftPackageReference "blinkid-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/BlinkID/blinkid-ios";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		3B91013029FC7219008E5D8E /* XCRemoteSwiftPackageReference "NFCPassportReader" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AndyQ/NFCPassportReader";
@@ -538,11 +542,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3B91012E29FC71FA008E5D8E /* BlinkID */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3B91012D29FC71FA008E5D8E /* XCRemoteSwiftPackageReference "blinkid-ios" */;
-			productName = BlinkID;
-		};
 		3B91013129FC7219008E5D8E /* NFCPassportReader */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3B91013029FC7219008E5D8E /* XCRemoteSwiftPackageReference "NFCPassportReader" */;

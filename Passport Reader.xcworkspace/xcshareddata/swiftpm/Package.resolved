@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "blinkid-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/BlinkID/blinkid-ios",
-      "state" : {
-        "branch" : "master",
-        "revision" : "dc1fa0df5ddd2bac21f313cc0253243a2b58f429"
-      }
-    },
-    {
       "identity" : "nfcpassportreader",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AndyQ/NFCPassportReader",

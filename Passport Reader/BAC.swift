@@ -5,8 +5,7 @@
 //  Created by Jakub Dolejs on 28/04/2023.
 //
 
-import Foundation
-import BlinkID
+import UIKit
 
 class BAC: NSObject, ObservableObject, Codable {
     
@@ -25,12 +24,6 @@ class BAC: NSObject, ObservableObject, Codable {
             self.updateUserDefaults()
         }
     }
-    
-    lazy var blinkIdRecognizer: MBBlinkIdSingleSideRecognizer = {
-        let recognizer = MBBlinkIdSingleSideRecognizer()
-        recognizer.recognitionModeFilter.enableMrzPassport = true
-        return recognizer
-    }()
     
     lazy var dateParser: DateFormatter = {
         let parser = DateFormatter()
@@ -89,51 +82,24 @@ class BAC: NSObject, ObservableObject, Codable {
     }
     
     func captureMRZ() {
-        /** Create BlinkID settings */
-        let settings: MBBlinkIdOverlaySettings = MBBlinkIdOverlaySettings()
-        
-        /** Crate recognizer collection */
-        let recognizerList = [self.blinkIdRecognizer]
-        let recognizerCollection: MBRecognizerCollection = MBRecognizerCollection(recognizers: recognizerList)
-        
-        /** Create your overlay view controller */
-        let blinkIdOverlayViewController: MBBlinkIdOverlayViewController = MBBlinkIdOverlayViewController(settings: settings, recognizerCollection: recognizerCollection, delegate: self)
-        
-        /** Create recognizer view controller with wanted overlay view controller */
-        guard let recognizerRunnerViewController: UIViewController = MBViewControllerFactory.recognizerRunnerViewController(withOverlayViewController: blinkIdOverlayViewController) else {
-            return
-        }
-        
-        /** Present the recognizer runner view controller. You can use other presentation methods as well (instead of presentViewController) */
         guard let rootViewController = UIApplication.shared.connectedScenes.compactMap({ scene in
             return (scene as? UIWindowScene)?.keyWindow?.rootViewController
         }).first else {
             return
         }
-        rootViewController.present(recognizerRunnerViewController, animated: true)
+        let cameraViewController = UIStoryboard(name: "Camera", bundle: .main).instantiateInitialViewController() as! CameraViewController
+        cameraViewController.delegate = self
+        rootViewController.present(cameraViewController, animated: true)
     }
 }
 
-extension BAC: MBBlinkIdOverlayViewControllerDelegate {
+extension BAC: MRZCameraViewControllerDelegate {
     
-    func blinkIdOverlayViewControllerDidFinishScanning(_ blinkIdOverlayViewController: MBBlinkIdOverlayViewController, state: MBRecognizerResultState) {
-        if state == .valid {
-            blinkIdOverlayViewController.recognizerRunnerViewController?.pauseScanning()
-            DispatchQueue.main.async {
-                blinkIdOverlayViewController.dismiss(animated: true, completion: nil)
-                let result = self.blinkIdRecognizer.result
-                self.documentNumber = result.mrzResult.documentNumber.trimmingCharacters(in: CharacterSet(charactersIn: "<").union(.whitespacesAndNewlines))
-                if let dobString = result.mrzResult.dateOfBirth.originalDateString, let dob = self.dateParser.date(from: dobString) {
-                    self.dateOfBirth = dob
-                }
-                if let doeString = result.mrzResult.dateOfExpiry.originalDateString, let doe = self.dateParser.date(from: doeString) {
-                    self.dateOfExpiry = doe
-                }
-            }
+    func cameraViewController(_ cameraViewController: CameraViewController, didFindMRZ mrzData: MRZData) {
+        cameraViewController.dismiss(animated: true) {
+            self.documentNumber = mrzData.documentNumber
+            self.dateOfBirth = mrzData.dateOfBirth
+            self.dateOfExpiry = mrzData.dateOfExpiry
         }
-    }
-    
-    func blinkIdOverlayViewControllerDidTapClose(_ blinkIdOverlayViewController: MBBlinkIdOverlayViewController) {
-        blinkIdOverlayViewController.dismiss(animated: true)
     }
 }
