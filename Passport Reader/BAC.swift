@@ -1,13 +1,13 @@
 //
-//  BAC.swift
+//  Bac.swift
 //  Passport Reader
 //
-//  Created by Jakub Dolejs on 28/04/2023.
+//  Created by Jakub Dolejs on 12/08/2025.
 //
 
-import UIKit
+import Foundation
 
-class BAC: NSObject, ObservableObject, Codable {
+class Bac: NSObject, ObservableObject, Codable {
     
     @Published var documentNumber: String = "" {
         didSet {
@@ -34,7 +34,7 @@ class BAC: NSObject, ObservableObject, Codable {
     
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.calendar = Calendar(identifier: .gregorian)
         formatter.dateFormat = "YYMMdd"
         return formatter
     }()
@@ -43,10 +43,7 @@ class BAC: NSObject, ObservableObject, Codable {
         let docNumber = self.documentNumber.padding(toLength: 9, withPad: "<", startingAt: 0)
         let dateOfBirth = self.dateFormatter.string(from: self.dateOfBirth).padding(toLength: 6, withPad: "<", startingAt: 0)
         let dateOfExpiry = self.dateFormatter.string(from: self.dateOfExpiry).padding(toLength: 6, withPad: "<", startingAt: 0)
-        let docNumberChecksum = MRZChecksum(docNumber)
-        let dateOfBirthChecksum = MRZChecksum(dateOfBirth)
-        let dateOfExpiryChecksum = MRZChecksum(dateOfExpiry)
-        return "\(docNumber)\(docNumberChecksum)\(dateOfBirth)\(dateOfBirthChecksum)\(dateOfExpiry)\(dateOfExpiryChecksum)"
+        return "\(docNumber)\(docNumber.mrzChecksum)\(dateOfBirth)\(dateOfBirth.mrzChecksum)\(dateOfExpiry)\(dateOfExpiry.mrzChecksum)"
     }
     
     enum BACCodingKeys: String, CodingKey {
@@ -54,7 +51,7 @@ class BAC: NSObject, ObservableObject, Codable {
     }
     
     override init() {
-        if let bacData = UserDefaults.standard.bac, let bac = try? JSONDecoder().decode(BAC.self, from: bacData) {
+        if let bacData = UserDefaults.standard.bac, let bac = try? JSONDecoder().decode(Bac.self, from: bacData) {
             self.documentNumber = bac.documentNumber
             self.dateOfBirth = bac.dateOfBirth
             self.dateOfExpiry = bac.dateOfExpiry
@@ -76,30 +73,10 @@ class BAC: NSObject, ObservableObject, Codable {
     }
     
     private func updateUserDefaults() {
-        if let bac = try? JSONEncoder().encode(self) {
-            UserDefaults.standard.bac = bac
-        }
-    }
-    
-    func captureMRZ() {
-        guard let rootViewController = UIApplication.shared.connectedScenes.compactMap({ scene in
-            return (scene as? UIWindowScene)?.keyWindow?.rootViewController
-        }).first else {
-            return
-        }
-        let cameraViewController = UIStoryboard(name: "Camera", bundle: .main).instantiateInitialViewController() as! CameraViewController
-        cameraViewController.delegate = self
-        rootViewController.present(cameraViewController, animated: true)
-    }
-}
-
-extension BAC: MRZCameraViewControllerDelegate {
-    
-    func cameraViewController(_ cameraViewController: CameraViewController, didFindMRZ mrzData: MRZData) {
-        cameraViewController.dismiss(animated: true) {
-            self.documentNumber = mrzData.documentNumber
-            self.dateOfBirth = mrzData.dateOfBirth
-            self.dateOfExpiry = mrzData.dateOfExpiry
+        Task(priority: .background) {
+            if let bac = try? JSONEncoder().encode(self) {
+                UserDefaults.standard.bac = bac
+            }
         }
     }
 }

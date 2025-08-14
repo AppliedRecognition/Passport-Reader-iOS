@@ -2,7 +2,7 @@
 //  Passport_ReaderApp.swift
 //  Passport Reader
 //
-//  Created by Jakub Dolejs on 28/04/2023.
+//  Created by Jakub Dolejs on 12/08/2025.
 //
 
 import SwiftUI

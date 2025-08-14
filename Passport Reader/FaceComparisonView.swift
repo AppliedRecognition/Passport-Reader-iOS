@@ -2,82 +2,78 @@
 //  FaceComparisonView.swift
 //  Passport Reader
 //
-//  Created by Jakub Dolejs on 01/05/2023.
+//  Created by Jakub Dolejs on 12/08/2025.
 //
 
 import SwiftUI
-import VerIDUI
-import NormalDistribution
 
 struct FaceComparisonView: View {
     
-    let documentFace: FaceCapture
-    let liveFace: FaceCapture
-    let threshold: Float = 4.0
-    @EnvironmentObject var verIDLoader: VerIDLoader
-    @State var comparisonResult: Result<Float,Error>?
-    @State var probability: Double?
-    var barTitle: String {
-        switch self.comparisonResult {
-        case .none:
-            return "..."
-        case .success(let score):
-            return String(format: "Score %.02f", score)
-        case .failure(_):
-            return "Error"
-        }
-    }
+    let documentFaceImage: UIImage
+    let selfieFaceImage: UIImage
+    let score: Float
+    let name: String
+    let threshold: Float = 0.5
+    let message: String
+    let title: String
     
-    init(documentFace: FaceCapture, liveFace: FaceCapture) {
-        self.documentFace = documentFace
-        self.liveFace = liveFace
+    init(documentFaceImage: UIImage, selfieFaceImage: UIImage, score: Float, name: String) {
+        self.documentFaceImage = documentFaceImage
+        self.selfieFaceImage = selfieFaceImage
+        self.score = score
+        self.name = name
+        self.message = score >= threshold ?
+            String(format: "The comparison score %.02f suggests that the captured face is %@.", self.score, self.name) :
+            String(format: "The comparison score %.02f suggests that the captured face is not %@.", self.score, self.name)
+        self.title = score >= threshold ? name : "Not \(name)"
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Image(uiImage: self.documentFace.faceImage).resizable().aspectRatio(4/5, contentMode: .fit).frame(height: 150).cornerRadius(8).padding(.trailing, 16)
-                Image(uiImage: self.liveFace.faceImage).resizable().aspectRatio(4/5, contentMode: .fit).frame(height: 150).cornerRadius(8)
-                Spacer()
+        let columns = [GridItem(.flexible(), spacing: 16),
+                       GridItem(.flexible(), spacing: 16)]
+        
+        VStack(spacing: 16) {
+            LazyVGrid(columns: columns, spacing: 16) {
+                Image(uiImage: documentFaceImage)
+                    .resizable()
+                    .aspectRatio(1, contentMode: .fit)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .clipped()
+                
+                Image(uiImage: selfieFaceImage)
+                    .resizable()
+                    .aspectRatio(1, contentMode: .fit)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .clipped()
             }
-            .padding(.bottom, 16)
-            switch self.comparisonResult {
-            case .none:
-                ProgressView {
-                    Text("Comparing faces")
-                }.progressViewStyle(.circular)
-            case .success(let score):
-                if score >= self.threshold {
-                    Text(String(format: "The face matching score %.02f indicates a likelihood of %.0f%% that the person on the ID card is the same person as the one in the selfie. We recommend a threshold of %.02f for a positive identification when comparing faces from identity cards.", score, self.probability ?? 0, self.threshold))
-                } else {
-                    Text(String(format: "The face matching score %.02f indicates that the person on the ID card is likely NOT the same person as the one in the selfie. We recommend a threshold of %.02f for a positive identification when comparing faces from identity cards.", score, self.threshold))
-                }
-                Spacer()
-            case .failure(let error):
-                Text("Comparison failed: \(error.localizedDescription)")
-                Spacer()
-            }
+            Text(self.message)
+            Spacer()
         }
-        .navigationTitle(self.barTitle)
-        .navigationBarTitleDisplayMode(.large)
         .padding()
-        .task {
-            if let result = self.verIDLoader.result, case .success(let verID) = result {
-                do {
-                    let score = try verID.faceRecognition.compareSubjectFaces([documentFace.face], toFaces: [liveFace.face])
-                    self.probability = try? NormalDistribution().cumulativeProbability(Double(score.floatValue)) * 100
-                    self.comparisonResult = .success(score.floatValue)
-                } catch {
-                    self.probability = nil
-                    self.comparisonResult = .failure(error)
-                }
-            }
-        }
+        .frame(maxWidth: 560)
+        .navigationTitle(self.title)
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 
-//struct FaceComparisonView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FaceComparisonView()
-//    }
-//}
+#Preview {
+    NavigationStack {
+        FaceComparisonView(
+            documentFaceImage: UIImage(systemName: "person")!,
+            selfieFaceImage: UIImage(systemName: "person.fill")!,
+            score: 0.5,
+            name: "Lazy Cheetah"
+        )
+    }
+}
+
+#Preview {
+    NavigationStack {
+        FaceComparisonView(
+            documentFaceImage: UIImage(systemName: "person")!,
+            selfieFaceImage: UIImage(systemName: "person.fill")!,
+            score: 0.2,
+            name: "Lazy Cheetah"
+        )
+    }
+}

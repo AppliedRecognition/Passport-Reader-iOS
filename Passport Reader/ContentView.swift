@@ -2,152 +2,137 @@
 //  ContentView.swift
 //  Passport Reader
 //
-//  Created by Jakub Dolejs on 28/04/2023.
+//  Created by Jakub Dolejs on 12/08/2025.
 //
 
 import SwiftUI
 import NFCPassportReader
-import VerIDUI
-import VisionKit
+import FaceDetectionRetinaFace
+import VerIDCommonTypes
+import FaceRecognitionArcFaceCloud
+import FaceCapture
 
 struct ContentView: View {
     
-    @StateObject var bac: BAC = BAC()
-    @StateObject var verIDLoader: VerIDLoader = VerIDLoader()
-    @State var capturedDocument: NFCPassportModel?
-    @State var documentCaptured: Bool = false
-    @State var faceCapture: FaceCapture?
-    @State var showingCapturedDocument: Bool = false
-    @State var faceDetectionError: Error?
-    
-    var passportReader: PassportReader = PassportReader(logLevel: .error, masterListURL: Bundle.main.url(forResource: "MasterList", withExtension: "pem"))
+    @State var navigationPath = NavigationPath()
+    @StateObject var bac = Bac()
+    @State var error: Error?
+    @State var activity: String?
+    let passportReader = PassportReader(masterListURL: Bundle.main.url(forResource: "MasterList", withExtension: "pem"))
     
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $navigationPath) {
             ZStack {
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Image("Passport")
-                    }.ignoresSafeArea()
-                }.ignoresSafeArea()
-                if let faceDetectionError = self.faceDetectionError {
-                    Text(faceDetectionError.localizedDescription)
-                } else if let document = self.capturedDocument, let faceCapture = self.faceCapture, self.showingCapturedDocument {
-                    NavigationLink(isActive: self.$showingCapturedDocument) {
-                        let name = "\(document.firstName) \(document.lastName)"
-                        PassportView(faceCapture: faceCapture, name: name, details: document.list)
-                    } label: {
-                        EmptyView()
+                Image("Passport")
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                    .ignoresSafeArea()
+                if let activity = self.activity {
+                    VStack(spacing: 16) {
+                        ProgressView().progressViewStyle(.circular)
+                        Text(activity)
                     }
-                } else if self.capturedDocument != nil && self.faceCapture == nil {
-                    ProgressView {
-                        Text("Detecting a face")
-                    }.progressViewStyle(.circular)
                 } else {
-                    VStack(alignment: .leading) {
-                        HStack {
-                            TextField(text: self.$bac.documentNumber, prompt: Text("Document number")) {
-                                Text("Document number")
-                            }
-                            .textFieldStyle(.roundedBorder)
-                            .autocorrectionDisabled()
-                            .textInputAutocapitalization(.characters)
-                            .padding(.bottom, 8)
-                            .frame(maxWidth: 300)
+                    VStack {
+                        VStack(alignment: .leading, spacing: 16) {
+                            BacEntryView(bac: self.bac)
                             Button {
-                                self.bac.captureMRZ()
+                                self.readPassport()
                             } label: {
-                                Image(systemName: "camera.fill").imageScale(.large)
+                                Text("Scan passport")
+                                Image(systemName: "wave.3.right")
                             }
-                            .padding(.bottom, 8)
-                            Spacer()
+                            .buttonStyle(.borderedProminent)
+                            .disabled(self.bac.documentNumber.isEmpty)
                         }
-                        DatePicker("Date of birth", selection: self.$bac.dateOfBirth, displayedComponents: .date).datePickerStyle(.compact).frame(maxWidth: 340)
-                        DatePicker("Date of expiry", selection: self.$bac.dateOfExpiry, displayedComponents: .date).datePickerStyle(.compact).frame(maxWidth: 340)
-                        Button {
-                            self.readPassport()
-                        } label: {
-                            Text("Read passport")
-                            Image(systemName: "wave.3.right")
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .disabled(self.bac.documentNumber.trimmingCharacters(in: .alphanumerics.inverted).isEmpty)
-                        .padding(.top, 16)
+                        .frame(maxWidth: 500)
+                        .padding()
                         Spacer()
                     }
-                    .navigationTitle("Passport Reader")
-                    .padding()
+                    .padding(.bottom, 100)
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                }
+            }
+            .navigationTitle("Passport reader")
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        self.navigationPath.append(Route.about)
+                    } label: {
+                        Image(systemName: "info.circle")
+                    }
+                }
+            }
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                case .document(face: let face, image: let image, name: let name, details: let details):
+                    PassportView(face: face, image: image, name: name, details: details, faceRecognition: faceRecognition, navigationPath: self.$navigationPath)
+                case .comparison(documentFace: let face1, documentImage: let image1, selfieFace: let face2, selfieImage: let image2, score: let score, name: let name):
+                    let docImage = FaceImageUtil.cropImage(image1, toFace: face1)
+                    let selfieImage = FaceImageUtil.cropImage(image2, toFace: face2)
+                    FaceComparisonView(documentFaceImage: docImage, selfieFaceImage: selfieImage, score: score, name: name)
+                case .documentDetails(documentFace: let face, documentImage: let image, details: let details):
+                    PassportDetailsView(face: face, image: image, details: details)
+                case .about:
+                    AboutView()
+                case .tips:
+                    TipsView()
+                }
+            }
+            .alert("Error", isPresented: Binding(get: { self.error != nil }, set: { if !$0 { self.error = nil }}), presenting: self.error) { error in
+                Button(role: .cancel) {} label: {
+                    Text("OK")
+                }
+            } message: { error in
+                if error is LocalizedError {
+                    Text(error.localizedDescription)
+                } else {
+                    EmptyView()
                 }
             }
         }
-        .onChange(of: self.verIDLoader.isVerIDLoaded) { _ in
-            self.detectFaceOnDocument()
-        }
-        .onChange(of: self.documentCaptured) { _ in
-            self.detectFaceOnDocument()
-        }
-        .navigationViewStyle(.stack)
-        .environmentObject(verIDLoader)
     }
     
     private func readPassport() {
-        self.faceCapture = nil
-        self.capturedDocument = nil
-        self.documentCaptured = false
-        Task {
+        Task(priority: .high) {
             do {
                 let tags: [DataGroupId] = [.COM, .DG1, .DG2, .DG7, .DG11, .DG12, .DG15, .SOD]
-                let document = try await self.passportReader.readPassport(mrzKey: self.bac.key, tags: tags)
+                NSLog("MRZ key: \(self.bac.key)")
+                let result = try await self.passportReader.readPassport(mrzKey: self.bac.key, tags: tags)
+                let name = "\(result.firstName) \(result.lastName)".trimmingCharacters(in: .whitespaces)
+                guard let image = result.passportImage, let cgImage = image.cgImage, let veridImage = VerIDCommonTypes.Image(cgImage: cgImage) else {
+                    throw NSError()
+                }
+                guard let face = try await FaceDetectionRetinaFace().detectFacesInImage(veridImage, limit: 1).first else {
+                    throw NSError()
+                }
                 await MainActor.run {
-                    self.capturedDocument = document
-                    self.documentCaptured = true
+                    self.navigationPath.append(Route.document(face: face, image: veridImage, name: NameUtil.humanizeName(name), details: result.list))
                 }
             } catch {
-                NSLog("Failed to read passport: %@", error.localizedDescription)
+                // NFCPassportReader handles the UI
             }
         }
-    }
-    
-    private func detectFaceOnDocument() {
-        if let result = self.verIDLoader.result, case .success(let verID) = result, let utils = verID.utilities, let docImage = self.capturedDocument?.passportImage {
-            Task {
-                let image = self.image(docImage, paddedToWidth: 720) ?? docImage
-                do {
-                    guard let face = try await utils.faceDetection.detectRecognizableFacesInImage(image, limit: 1).first else {
-                        // TODO: Error
-                        throw NSError()
-                    }
-                    let faceCapture = try FaceCapture(face: face, bearing: .straight, image: image)
-                    await MainActor.run {
-                        self.faceDetectionError = nil
-                        self.faceCapture = faceCapture
-                        self.showingCapturedDocument = true
-                    }
-                } catch {
-                    await MainActor.run {
-                        self.faceDetectionError = error
-                    }
-                }
-            }
-        }
-    }
-    
-    private func image(_ image: UIImage, paddedToWidth minWidth: CGFloat) -> UIImage? {
-        if image.size.width < minWidth {
-            let borderWidth = minWidth - image.size.width
-            UIGraphicsBeginImageContext(CGSize(width: minWidth, height: image.size.height + borderWidth))
-            defer {
-                UIGraphicsEndImageContext()
-            }
-            if let context = UIGraphicsGetCurrentContext() {
-                context.setFillColor(UIColor.gray.cgColor)
-                context.fill([CGRect(x: 0, y: 0, width: borderWidth, height: image.size.height + borderWidth)])
-            }
-            image.draw(at: CGPoint(x: borderWidth, y: borderWidth))
-            return UIGraphicsGetImageFromCurrentImageContext()
-        }
-        return nil
     }
 }
+
+#Preview {
+    ContentView()
+}
+
+enum Route: Hashable {
+    case document(face: Face, image: VerIDCommonTypes.Image, name: String, details: [DocSection])
+    case comparison(documentFace: Face, documentImage: VerIDCommonTypes.Image, selfieFace: Face, selfieImage: VerIDCommonTypes.Image, score: Float, name: String)
+    case documentDetails(documentFace: Face, documentImage: VerIDCommonTypes.Image, details: [DocSection])
+    case about
+    case tips
+}
+
+let faceRecognition: FaceRecognitionArcFace = {
+    if let apiKey = Bundle.main.object(forInfoDictionaryKey: "FaceRecognitionApiKey") as? String, let urlString = Bundle.main.object(forInfoDictionaryKey: "FaceRecognitionUrl") as? String, let url = URL(string: urlString) {
+        return FaceRecognitionArcFace(apiKey: apiKey, url: url)
+    } else {
+        fatalError()
+    }
+}()
