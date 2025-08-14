@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FaceRecognitionApiKey</key>
+	<string>BK1aJ1vpb08InLtOsdmhL6ZiRDJtq0H89nPqVuzB</string>
+	<key>FaceRecognitionUrl</key>
+	<string>https://itnlej3459.execute-api.us-east-1.amazonaws.com/Prod/extract_face_templates</string>
+	<key>SpoofDetectionApiKey</key>
+	<string>BK1aJ1vpb08InLtOsdmhL6ZiRDJtq0H89nPqVuzB</string>
+	<key>SpoofDetectionUrl</key>
+	<string>https://j62fj0da16.execute-api.us-east-1.amazonaws.com/Prod/detect_spoof_devices</string>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchBackground</string>
+		<key>UIImageName</key>
+		<string>LaunchImage</string>
+	</dict>
+	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
+	<array>
+		<string>A0000002471001</string>
+		<string>00000000000000</string>
+	</array>
+</dict>
+</plist>

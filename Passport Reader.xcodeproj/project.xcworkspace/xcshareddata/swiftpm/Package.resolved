@@ -1,12 +1,30 @@
 {
   "pins" : [
     {
-      "identity" : "blinkid-ios",
+      "identity" : "face-capture-apple",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/BlinkID/blinkid-ios",
+      "location" : "https://github.com/AppliedRecognition/Face-Capture-Apple.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "dc1fa0df5ddd2bac21f313cc0253243a2b58f429"
+        "revision" : "ebdd1621c9fd85bb464993dc95914c24e63229b0",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "face-detection-retinaface-apple",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AppliedRecognition/Face-Detection-RetinaFace-Apple.git",
+      "state" : {
+        "revision" : "094de82c877637b51430b86d5944dfcb100b54ac",
+        "version" : "1.0.3"
+      }
+    },
+    {
+      "identity" : "face-recognition-arcface-apple",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AppliedRecognition/Face-Recognition-ArcFace-Apple.git",
+      "state" : {
+        "revision" : "38048ff93a4852c4fa7cb8119cc50b4f51f10279",
+        "version" : "1.0.1"
       }
     },
     {
@@ -14,17 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AndyQ/NFCPassportReader",
       "state" : {
-        "revision" : "84b4c823ead7f7f61049302f4100ed21db32f945",
-        "version" : "2.0.2"
-      }
-    },
-    {
-      "identity" : "normal-distribution-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AppliedRecognition/Normal-Distribution-Swift",
-      "state" : {
-        "revision" : "45ad4b2a1a3f65172ea6b6a6b5fc4674e99cfe6a",
-        "version" : "1.1.0"
+        "revision" : "00bd4a336bc36af0a978c76e7461031ca99e576a",
+        "version" : "2.1.2"
       }
     },
     {
@@ -32,8 +41,26 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/OpenSSL.git",
       "state" : {
-        "revision" : "0c70e4b7d22411a7fe3ff59b913d5b760b735ce1",
-        "version" : "1.1.2100"
+        "revision" : "8cb1d641ab5ebce2cd7cf31c93baef07bed672d4",
+        "version" : "1.1.2301"
+      }
+    },
+    {
+      "identity" : "spoof-device-detection-ver-id-3-apple",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AppliedRecognition/Spoof-Device-Detection-Ver-ID-3-Apple.git",
+      "state" : {
+        "revision" : "bb129ee2f5976144a102f8c92496fa949e62d196",
+        "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "ver-id-common-types-apple",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AppliedRecognition/Ver-ID-Common-Types-Apple.git",
+      "state" : {
+        "revision" : "3587575fd09adc2acb1db8bca7d80e1c4479eb55",
+        "version" : "2.2.0"
       }
     }
   ],

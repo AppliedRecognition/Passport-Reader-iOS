@@ -1,8 +1,8 @@
 //
-//  NFCPassportModel+VerID.swift
+//  NFCPassportModel.swift
 //  Passport Reader
 //
-//  Created by Jakub Dolejs on 29/04/2023.
+//  Created by Jakub Dolejs on 12/08/2025.
 //
 
 import Foundation
@@ -19,7 +19,7 @@ extension NFCPassportModel {
         let dateFormatter = {
             let formatter = DateFormatter()
             formatter.timeStyle = .none
-            formatter.dateStyle = .long
+            formatter.dateStyle = .short
             return formatter
         }()
         let dob: String
@@ -47,8 +47,6 @@ extension NFCPassportModel {
                 chipAuthentication = "Passed"
             case .failed:
                 chipAuthentication = "Failed"
-            @unknown default:
-                chipAuthentication = "Unknown"
             }
         }
         var authenticationType = "None"
@@ -62,8 +60,6 @@ extension NFCPassportModel {
                 authenticationType = "PACE"
             case .failed:
                 paceStatus = "Failed"
-            @unknown default:
-                paceStatus = "Unknown"
             }
         }
         var bacStatus = "None"
@@ -75,8 +71,6 @@ extension NFCPassportModel {
             authenticationType = "BAC"
         case .failed:
             bacStatus = "Failed"
-        @unknown default:
-            bacStatus = "Unknown"
         }
         return [
             DocSection(name: "Document holder", rows: [
@@ -105,14 +99,14 @@ extension NFCPassportModel {
     }
 }
 
-struct DocSection: Identifiable {
+struct DocSection: Identifiable, Hashable {
     
     let id = UUID()
     let name: String
     let rows: [DocSectionRow]
 }
 
-struct DocSectionRow: Identifiable {
+struct DocSectionRow: Identifiable, Hashable {
     
     let id = UUID()
     let name: String

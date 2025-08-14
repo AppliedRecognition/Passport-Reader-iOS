@@ -7,165 +7,133 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B91012C29FC6F76008E5D8E /* BAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91012B29FC6F76008E5D8E /* BAC.swift */; };
-		3B91013229FC7219008E5D8E /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = 3B91013129FC7219008E5D8E /* NFCPassportReader */; };
-		3B91013429FC7E76008E5D8E /* PassportDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91013329FC7E76008E5D8E /* PassportDetailsView.swift */; };
-		3B91013629FD59AC008E5D8E /* NFCPassportModel+VerID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91013529FD59AC008E5D8E /* NFCPassportModel+VerID.swift */; };
-		3B94710D29FC642B0029C456 /* Passport_ReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94710C29FC642B0029C456 /* Passport_ReaderApp.swift */; };
-		3B94710F29FC642B0029C456 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94710E29FC642B0029C456 /* ContentView.swift */; };
-		3B94711129FC642D0029C456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B94711029FC642D0029C456 /* Assets.xcassets */; };
-		3B94711429FC642D0029C456 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B94711329FC642D0029C456 /* Preview Assets.xcassets */; };
-		3BC1CBB729FFC4A40040FD69 /* VerIDLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBB629FFC4A40040FD69 /* VerIDLoader.swift */; };
-		3BC1CBB929FFE6C30040FD69 /* PassportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBB829FFE6C30040FD69 /* PassportView.swift */; };
-		3BC1CBBB29FFF3960040FD69 /* Ver-ID identity.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 3BC1CBBA29FFF3960040FD69 /* Ver-ID identity.p12 */; };
-		3BC1CBBE29FFFAB20040FD69 /* VerIDSessionRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBBD29FFFAB20040FD69 /* VerIDSessionRunner.swift */; };
-		3BC1CBC52A0035180040FD69 /* UserDefaults+PassportReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBC42A0035180040FD69 /* UserDefaults+PassportReader.swift */; };
-		3BC1CBC72A004ABA0040FD69 /* FaceComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBC62A004ABA0040FD69 /* FaceComparisonView.swift */; };
-		3BC1CBCA2A006D0F0040FD69 /* NormalDistribution in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC1CBC92A006D0F0040FD69 /* NormalDistribution */; };
-		3BC1CBCC2A0101CB0040FD69 /* MRZScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBCB2A0101CB0040FD69 /* MRZScanner.swift */; };
-		3BC1CBCE2A0119270040FD69 /* MRZData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBCD2A0119260040FD69 /* MRZData.swift */; };
-		3BC1CBD02A011A950040FD69 /* MRZChecksum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC1CBCF2A011A950040FD69 /* MRZChecksum.swift */; };
-		3BFEAEB42A819FF800064997 /* MasterList.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3BFEAEB32A819FF800064997 /* MasterList.pem */; };
-		3BFEAEBA2A85651800064997 /* CameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAEB92A85651800064997 /* CameraControl.swift */; };
-		3BFEAEBC2A8578C200064997 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAEBB2A8578C200064997 /* CameraViewController.swift */; };
-		3BFEAEC02A85806B00064997 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAEBF2A85806B00064997 /* CameraPreviewView.swift */; };
-		3BFEAEC22A86333800064997 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFEAEC12A86333800064997 /* Camera.storyboard */; };
-		3BFEAEC42A8633EE00064997 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFEAEC32A8633EE00064997 /* GradientView.swift */; };
-		C8420AB4F242412CD215A43F /* Pods_Passport_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E43404143A645D3E1DDAFC /* Pods_Passport_Reader.framework */; };
+		3B15EFC02E4B84A000938641 /* Passport_ReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15EFBF2E4B84A000938641 /* Passport_ReaderApp.swift */; };
+		3B15EFC22E4B84A000938641 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15EFC12E4B84A000938641 /* ContentView.swift */; };
+		3B15EFC42E4B84A300938641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B15EFC32E4B84A300938641 /* Assets.xcassets */; };
+		3B15EFC72E4B84A300938641 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B15EFC62E4B84A300938641 /* Preview Assets.xcassets */; };
+		3B15EFCF2E4B84F100938641 /* NFCPassportReader in Frameworks */ = {isa = PBXBuildFile; productRef = 3B15EFCE2E4B84F100938641 /* NFCPassportReader */; };
+		3B15EFD22E4B85C900938641 /* FaceDetectionRetinaFace in Frameworks */ = {isa = PBXBuildFile; productRef = 3B15EFD12E4B85C900938641 /* FaceDetectionRetinaFace */; };
+		3B15EFD52E4B85DF00938641 /* FaceRecognitionArcFaceCloud in Frameworks */ = {isa = PBXBuildFile; productRef = 3B15EFD42E4B85DF00938641 /* FaceRecognitionArcFaceCloud */; };
+		3B15EFD72E4B85DF00938641 /* FaceRecognitionArcFaceCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3B15EFD62E4B85DF00938641 /* FaceRecognitionArcFaceCore */; };
+		3B15EFDA2E4B860700938641 /* FaceCapture in Frameworks */ = {isa = PBXBuildFile; productRef = 3B15EFD92E4B860700938641 /* FaceCapture */; };
+		3B15EFDD2E4B862300938641 /* SpoofDeviceDetection in Frameworks */ = {isa = PBXBuildFile; productRef = 3B15EFDC2E4B862300938641 /* SpoofDeviceDetection */; };
+		3B15EFDF2E4B862300938641 /* SpoofDeviceDetectionCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3B15EFDE2E4B862300938641 /* SpoofDeviceDetectionCore */; };
+		3B15EFE12E4B865500938641 /* BacEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15EFE02E4B865500938641 /* BacEntryView.swift */; };
+		3B15EFE32E4B86B300938641 /* Bac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15EFE22E4B86B300938641 /* Bac.swift */; };
+		3B15EFE52E4B872600938641 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15EFE42E4B872600938641 /* String.swift */; };
+		3B15EFE72E4B87EE00938641 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15EFE62E4B87EE00938641 /* UserDefaults.swift */; };
+		3B15EFE92E4B989B00938641 /* NFCPassportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15EFE82E4B989B00938641 /* NFCPassportModel.swift */; };
+		3B15EFEB2E4B9B0300938641 /* PassportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15EFEA2E4B9B0300938641 /* PassportView.swift */; };
+		3B15EFEE2E4BD70D00938641 /* FaceImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15EFED2E4BD70D00938641 /* FaceImageUtil.swift */; };
+		3B15EFF02E4BD95B00938641 /* FaceComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15EFEF2E4BD95B00938641 /* FaceComparisonView.swift */; };
+		3B15EFF32E4BE40300938641 /* MasterList.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3B15EFF22E4BE40300938641 /* MasterList.pem */; };
+		3B22A98C2E4CDAC7006D5A2D /* FaceMatchingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22A98B2E4CDAC7006D5A2D /* FaceMatchingModel.swift */; };
+		3B22A98E2E4CEAA5006D5A2D /* NameUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22A98D2E4CEAA5006D5A2D /* NameUtil.swift */; };
+		3B22A9902E4D0071006D5A2D /* PassportDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22A98F2E4D0071006D5A2D /* PassportDetailsView.swift */; };
+		3B22A9922E4D21D6006D5A2D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22A9912E4D21D6006D5A2D /* AboutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35E43404143A645D3E1DDAFC /* Pods_Passport_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Passport_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B91012B29FC6F76008E5D8E /* BAC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAC.swift; sourceTree = "<group>"; };
-		3B91013329FC7E76008E5D8E /* PassportDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportDetailsView.swift; sourceTree = "<group>"; };
-		3B91013529FD59AC008E5D8E /* NFCPassportModel+VerID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFCPassportModel+VerID.swift"; sourceTree = "<group>"; };
-		3B94710929FC642B0029C456 /* Passport Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Passport Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B94710C29FC642B0029C456 /* Passport_ReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passport_ReaderApp.swift; sourceTree = "<group>"; };
-		3B94710E29FC642B0029C456 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3B94711029FC642D0029C456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3B94711329FC642D0029C456 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3BC1CBB629FFC4A40040FD69 /* VerIDLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerIDLoader.swift; sourceTree = "<group>"; };
-		3BC1CBB829FFE6C30040FD69 /* PassportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportView.swift; sourceTree = "<group>"; };
-		3BC1CBBA29FFF3960040FD69 /* Ver-ID identity.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ver-ID identity.p12"; sourceTree = "<group>"; };
-		3BC1CBBC29FFF3C40040FD69 /* Passport-Reader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Passport-Reader-Info.plist"; sourceTree = SOURCE_ROOT; };
-		3BC1CBBD29FFFAB20040FD69 /* VerIDSessionRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerIDSessionRunner.swift; sourceTree = "<group>"; };
-		3BC1CBC32A002FD10040FD69 /* Passport Reader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Passport Reader.entitlements"; sourceTree = "<group>"; };
-		3BC1CBC42A0035180040FD69 /* UserDefaults+PassportReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PassportReader.swift"; sourceTree = "<group>"; };
-		3BC1CBC62A004ABA0040FD69 /* FaceComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceComparisonView.swift; sourceTree = "<group>"; };
-		3BC1CBCB2A0101CB0040FD69 /* MRZScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZScanner.swift; sourceTree = "<group>"; };
-		3BC1CBCD2A0119260040FD69 /* MRZData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZData.swift; sourceTree = "<group>"; };
-		3BC1CBCF2A011A950040FD69 /* MRZChecksum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRZChecksum.swift; sourceTree = "<group>"; };
-		3BFEAEB32A819FF800064997 /* MasterList.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MasterList.pem; sourceTree = "<group>"; };
-		3BFEAEB92A85651800064997 /* CameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControl.swift; sourceTree = "<group>"; };
-		3BFEAEBB2A8578C200064997 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		3BFEAEBF2A85806B00064997 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
-		3BFEAEC12A86333800064997 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
-		3BFEAEC32A8633EE00064997 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		E2A874C5E957CFE4579D06C2 /* Pods-Passport Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport Reader.debug.xcconfig"; path = "Target Support Files/Pods-Passport Reader/Pods-Passport Reader.debug.xcconfig"; sourceTree = "<group>"; };
-		F1773535619F97C8CA7B1B75 /* Pods-Passport Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passport Reader.release.xcconfig"; path = "Target Support Files/Pods-Passport Reader/Pods-Passport Reader.release.xcconfig"; sourceTree = "<group>"; };
+		3B15EFBC2E4B84A000938641 /* Passport Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Passport Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B15EFBF2E4B84A000938641 /* Passport_ReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passport_ReaderApp.swift; sourceTree = "<group>"; };
+		3B15EFC12E4B84A000938641 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3B15EFC32E4B84A300938641 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B15EFC62E4B84A300938641 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3B15EFE02E4B865500938641 /* BacEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacEntryView.swift; sourceTree = "<group>"; };
+		3B15EFE22E4B86B300938641 /* Bac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bac.swift; sourceTree = "<group>"; };
+		3B15EFE42E4B872600938641 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3B15EFE62E4B87EE00938641 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		3B15EFE82E4B989B00938641 /* NFCPassportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCPassportModel.swift; sourceTree = "<group>"; };
+		3B15EFEA2E4B9B0300938641 /* PassportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportView.swift; sourceTree = "<group>"; };
+		3B15EFEC2E4BC9B600938641 /* Passport-Reader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Passport-Reader-Info.plist"; path = "Passport Reader/Passport-Reader-Info.plist"; sourceTree = SOURCE_ROOT; };
+		3B15EFED2E4BD70D00938641 /* FaceImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceImageUtil.swift; sourceTree = "<group>"; };
+		3B15EFEF2E4BD95B00938641 /* FaceComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceComparisonView.swift; sourceTree = "<group>"; };
+		3B15EFF12E4BDF2E00938641 /* Passport Reader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Passport Reader.entitlements"; sourceTree = "<group>"; };
+		3B15EFF22E4BE40300938641 /* MasterList.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MasterList.pem; sourceTree = "<group>"; };
+		3B22A98B2E4CDAC7006D5A2D /* FaceMatchingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceMatchingModel.swift; sourceTree = "<group>"; };
+		3B22A98D2E4CEAA5006D5A2D /* NameUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameUtil.swift; sourceTree = "<group>"; };
+		3B22A98F2E4D0071006D5A2D /* PassportDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportDetailsView.swift; sourceTree = "<group>"; };
+		3B22A9912E4D21D6006D5A2D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3B94710629FC642B0029C456 /* Frameworks */ = {
+		3B15EFB92E4B84A000938641 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B91013229FC7219008E5D8E /* NFCPassportReader in Frameworks */,
-				C8420AB4F242412CD215A43F /* Pods_Passport_Reader.framework in Frameworks */,
-				3BC1CBCA2A006D0F0040FD69 /* NormalDistribution in Frameworks */,
+				3B15EFDD2E4B862300938641 /* SpoofDeviceDetection in Frameworks */,
+				3B15EFD72E4B85DF00938641 /* FaceRecognitionArcFaceCore in Frameworks */,
+				3B15EFDF2E4B862300938641 /* SpoofDeviceDetectionCore in Frameworks */,
+				3B15EFCF2E4B84F100938641 /* NFCPassportReader in Frameworks */,
+				3B15EFD22E4B85C900938641 /* FaceDetectionRetinaFace in Frameworks */,
+				3B15EFD52E4B85DF00938641 /* FaceRecognitionArcFaceCloud in Frameworks */,
+				3B15EFDA2E4B860700938641 /* FaceCapture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B94710029FC642B0029C456 = {
+		3B15EFB32E4B84A000938641 = {
 			isa = PBXGroup;
 			children = (
-				3B94710B29FC642B0029C456 /* Passport Reader */,
-				3B94710A29FC642B0029C456 /* Products */,
-				45A0C7F2A4A7129412ED108C /* Pods */,
-				84BE4BBEAFFB35E45B4D496F /* Frameworks */,
+				3B15EFBE2E4B84A000938641 /* Passport Reader */,
+				3B15EFBD2E4B84A000938641 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3B94710A29FC642B0029C456 /* Products */ = {
+		3B15EFBD2E4B84A000938641 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B94710929FC642B0029C456 /* Passport Reader.app */,
+				3B15EFBC2E4B84A000938641 /* Passport Reader.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3B94710B29FC642B0029C456 /* Passport Reader */ = {
+		3B15EFBE2E4B84A000938641 /* Passport Reader */ = {
 			isa = PBXGroup;
 			children = (
-				3BFEAEB32A819FF800064997 /* MasterList.pem */,
-				3BC1CBC32A002FD10040FD69 /* Passport Reader.entitlements */,
-				3BC1CBBC29FFF3C40040FD69 /* Passport-Reader-Info.plist */,
-				3BC1CBBA29FFF3960040FD69 /* Ver-ID identity.p12 */,
-				3B94710C29FC642B0029C456 /* Passport_ReaderApp.swift */,
-				3B94710E29FC642B0029C456 /* ContentView.swift */,
-				3B94711029FC642D0029C456 /* Assets.xcassets */,
-				3B94711229FC642D0029C456 /* Preview Content */,
-				3B91012B29FC6F76008E5D8E /* BAC.swift */,
-				3B91013329FC7E76008E5D8E /* PassportDetailsView.swift */,
-				3B91013529FD59AC008E5D8E /* NFCPassportModel+VerID.swift */,
-				3BC1CBB629FFC4A40040FD69 /* VerIDLoader.swift */,
-				3BC1CBB829FFE6C30040FD69 /* PassportView.swift */,
-				3BC1CBBD29FFFAB20040FD69 /* VerIDSessionRunner.swift */,
-				3BC1CBC42A0035180040FD69 /* UserDefaults+PassportReader.swift */,
-				3BC1CBC62A004ABA0040FD69 /* FaceComparisonView.swift */,
-				3BC1CBCB2A0101CB0040FD69 /* MRZScanner.swift */,
-				3BC1CBCD2A0119260040FD69 /* MRZData.swift */,
-				3BC1CBCF2A011A950040FD69 /* MRZChecksum.swift */,
-				3BFEAEB92A85651800064997 /* CameraControl.swift */,
-				3BFEAEBB2A8578C200064997 /* CameraViewController.swift */,
-				3BFEAEBF2A85806B00064997 /* CameraPreviewView.swift */,
-				3BFEAEC12A86333800064997 /* Camera.storyboard */,
-				3BFEAEC32A8633EE00064997 /* GradientView.swift */,
+				3B15EFF22E4BE40300938641 /* MasterList.pem */,
+				3B15EFF12E4BDF2E00938641 /* Passport Reader.entitlements */,
+				3B15EFEC2E4BC9B600938641 /* Passport-Reader-Info.plist */,
+				3B15EFBF2E4B84A000938641 /* Passport_ReaderApp.swift */,
+				3B15EFC12E4B84A000938641 /* ContentView.swift */,
+				3B15EFC32E4B84A300938641 /* Assets.xcassets */,
+				3B15EFC52E4B84A300938641 /* Preview Content */,
+				3B15EFE02E4B865500938641 /* BacEntryView.swift */,
+				3B15EFE22E4B86B300938641 /* Bac.swift */,
+				3B15EFE42E4B872600938641 /* String.swift */,
+				3B15EFE62E4B87EE00938641 /* UserDefaults.swift */,
+				3B15EFE82E4B989B00938641 /* NFCPassportModel.swift */,
+				3B15EFEA2E4B9B0300938641 /* PassportView.swift */,
+				3B15EFED2E4BD70D00938641 /* FaceImageUtil.swift */,
+				3B15EFEF2E4BD95B00938641 /* FaceComparisonView.swift */,
+				3B22A98B2E4CDAC7006D5A2D /* FaceMatchingModel.swift */,
+				3B22A98D2E4CEAA5006D5A2D /* NameUtil.swift */,
+				3B22A98F2E4D0071006D5A2D /* PassportDetailsView.swift */,
+				3B22A9912E4D21D6006D5A2D /* AboutView.swift */,
 			);
 			path = "Passport Reader";
 			sourceTree = "<group>";
 		};
-		3B94711229FC642D0029C456 /* Preview Content */ = {
+		3B15EFC52E4B84A300938641 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				3B94711329FC642D0029C456 /* Preview Assets.xcassets */,
+				3B15EFC62E4B84A300938641 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		45A0C7F2A4A7129412ED108C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E2A874C5E957CFE4579D06C2 /* Pods-Passport Reader.debug.xcconfig */,
-				F1773535619F97C8CA7B1B75 /* Pods-Passport Reader.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		84BE4BBEAFFB35E45B4D496F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				35E43404143A645D3E1DDAFC /* Pods_Passport_Reader.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3B94710829FC642B0029C456 /* Passport Reader */ = {
+		3B15EFBB2E4B84A000938641 /* Passport Reader */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B94711729FC642D0029C456 /* Build configuration list for PBXNativeTarget "Passport Reader" */;
+			buildConfigurationList = 3B15EFCA2E4B84A300938641 /* Build configuration list for PBXNativeTarget "Passport Reader" */;
 			buildPhases = (
-				28AB0BD7736606C5B406E313 /* [CP] Check Pods Manifest.lock */,
-				3B94710529FC642B0029C456 /* Sources */,
-				3B94710629FC642B0029C456 /* Frameworks */,
-				3B94710729FC642B0029C456 /* Resources */,
-				E9958D4486C46F37ED3C4211 /* [CP] Embed Pods Frameworks */,
-				590E190FC1846DC753066594 /* [CP] Copy Pods Resources */,
+				3B15EFB82E4B84A000938641 /* Sources */,
+				3B15EFB92E4B84A000938641 /* Frameworks */,
+				3B15EFBA2E4B84A000938641 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -173,29 +141,34 @@
 			);
 			name = "Passport Reader";
 			packageProductDependencies = (
-				3B91013129FC7219008E5D8E /* NFCPassportReader */,
-				3BC1CBC92A006D0F0040FD69 /* NormalDistribution */,
+				3B15EFCE2E4B84F100938641 /* NFCPassportReader */,
+				3B15EFD12E4B85C900938641 /* FaceDetectionRetinaFace */,
+				3B15EFD42E4B85DF00938641 /* FaceRecognitionArcFaceCloud */,
+				3B15EFD62E4B85DF00938641 /* FaceRecognitionArcFaceCore */,
+				3B15EFD92E4B860700938641 /* FaceCapture */,
+				3B15EFDC2E4B862300938641 /* SpoofDeviceDetection */,
+				3B15EFDE2E4B862300938641 /* SpoofDeviceDetectionCore */,
 			);
 			productName = "Passport Reader";
-			productReference = 3B94710929FC642B0029C456 /* Passport Reader.app */;
+			productReference = 3B15EFBC2E4B84A000938641 /* Passport Reader.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3B94710129FC642B0029C456 /* Project object */ = {
+		3B15EFB42E4B84A000938641 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					3B94710829FC642B0029C456 = {
-						CreatedOnToolsVersion = 14.3;
+					3B15EFBB2E4B84A000938641 = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = 3B94710429FC642B0029C456 /* Build configuration list for PBXProject "Passport Reader" */;
+			buildConfigurationList = 3B15EFB72E4B84A000938641 /* Build configuration list for PBXProject "Passport Reader" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -203,126 +176,66 @@
 				en,
 				Base,
 			);
-			mainGroup = 3B94710029FC642B0029C456;
+			mainGroup = 3B15EFB32E4B84A000938641;
 			packageReferences = (
-				3B91013029FC7219008E5D8E /* XCRemoteSwiftPackageReference "NFCPassportReader" */,
-				3BC1CBC82A006D0F0040FD69 /* XCRemoteSwiftPackageReference "Normal-Distribution-Swift" */,
+				3B15EFCD2E4B84F100938641 /* XCRemoteSwiftPackageReference "NFCPassportReader" */,
+				3B15EFD02E4B85C900938641 /* XCRemoteSwiftPackageReference "Face-Detection-RetinaFace-Apple" */,
+				3B15EFD32E4B85DF00938641 /* XCRemoteSwiftPackageReference "Face-Recognition-ArcFace-Apple" */,
+				3B15EFD82E4B860700938641 /* XCRemoteSwiftPackageReference "Face-Capture-Apple" */,
+				3B15EFDB2E4B862300938641 /* XCRemoteSwiftPackageReference "Spoof-Device-Detection-Ver-ID-3-Apple" */,
 			);
-			productRefGroup = 3B94710A29FC642B0029C456 /* Products */;
+			productRefGroup = 3B15EFBD2E4B84A000938641 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3B94710829FC642B0029C456 /* Passport Reader */,
+				3B15EFBB2E4B84A000938641 /* Passport Reader */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3B94710729FC642B0029C456 /* Resources */ = {
+		3B15EFBA2E4B84A000938641 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B94711429FC642D0029C456 /* Preview Assets.xcassets in Resources */,
-				3B94711129FC642D0029C456 /* Assets.xcassets in Resources */,
-				3BFEAEB42A819FF800064997 /* MasterList.pem in Resources */,
-				3BC1CBBB29FFF3960040FD69 /* Ver-ID identity.p12 in Resources */,
-				3BFEAEC22A86333800064997 /* Camera.storyboard in Resources */,
+				3B15EFC72E4B84A300938641 /* Preview Assets.xcassets in Resources */,
+				3B15EFF32E4BE40300938641 /* MasterList.pem in Resources */,
+				3B15EFC42E4B84A300938641 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		28AB0BD7736606C5B406E313 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Passport Reader-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		590E190FC1846DC753066594 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Passport Reader/Pods-Passport Reader-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Passport Reader/Pods-Passport Reader-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Passport Reader/Pods-Passport Reader-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E9958D4486C46F37ED3C4211 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Passport Reader/Pods-Passport Reader-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Passport Reader/Pods-Passport Reader-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Passport Reader/Pods-Passport Reader-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		3B94710529FC642B0029C456 /* Sources */ = {
+		3B15EFB82E4B84A000938641 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B91013429FC7E76008E5D8E /* PassportDetailsView.swift in Sources */,
-				3BC1CBB729FFC4A40040FD69 /* VerIDLoader.swift in Sources */,
-				3BC1CBD02A011A950040FD69 /* MRZChecksum.swift in Sources */,
-				3BC1CBC72A004ABA0040FD69 /* FaceComparisonView.swift in Sources */,
-				3BC1CBB929FFE6C30040FD69 /* PassportView.swift in Sources */,
-				3BFEAEC42A8633EE00064997 /* GradientView.swift in Sources */,
-				3BC1CBC52A0035180040FD69 /* UserDefaults+PassportReader.swift in Sources */,
-				3BC1CBBE29FFFAB20040FD69 /* VerIDSessionRunner.swift in Sources */,
-				3BFEAEC02A85806B00064997 /* CameraPreviewView.swift in Sources */,
-				3BC1CBCE2A0119270040FD69 /* MRZData.swift in Sources */,
-				3BFEAEBA2A85651800064997 /* CameraControl.swift in Sources */,
-				3B94710F29FC642B0029C456 /* ContentView.swift in Sources */,
-				3B94710D29FC642B0029C456 /* Passport_ReaderApp.swift in Sources */,
-				3B91012C29FC6F76008E5D8E /* BAC.swift in Sources */,
-				3BFEAEBC2A8578C200064997 /* CameraViewController.swift in Sources */,
-				3BC1CBCC2A0101CB0040FD69 /* MRZScanner.swift in Sources */,
-				3B91013629FD59AC008E5D8E /* NFCPassportModel+VerID.swift in Sources */,
+				3B15EFE92E4B989B00938641 /* NFCPassportModel.swift in Sources */,
+				3B15EFC22E4B84A000938641 /* ContentView.swift in Sources */,
+				3B15EFEE2E4BD70D00938641 /* FaceImageUtil.swift in Sources */,
+				3B15EFC02E4B84A000938641 /* Passport_ReaderApp.swift in Sources */,
+				3B15EFF02E4BD95B00938641 /* FaceComparisonView.swift in Sources */,
+				3B15EFE72E4B87EE00938641 /* UserDefaults.swift in Sources */,
+				3B15EFEB2E4B9B0300938641 /* PassportView.swift in Sources */,
+				3B15EFE52E4B872600938641 /* String.swift in Sources */,
+				3B22A9922E4D21D6006D5A2D /* AboutView.swift in Sources */,
+				3B22A98E2E4CEAA5006D5A2D /* NameUtil.swift in Sources */,
+				3B15EFE32E4B86B300938641 /* Bac.swift in Sources */,
+				3B15EFE12E4B865500938641 /* BacEntryView.swift in Sources */,
+				3B22A9902E4D0071006D5A2D /* PassportDetailsView.swift in Sources */,
+				3B22A98C2E4CDAC7006D5A2D /* FaceMatchingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		3B94711529FC642D0029C456 /* Debug */ = {
+		3B15EFC82E4B84A300938641 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -355,7 +268,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -369,20 +283,22 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		3B94711629FC642D0029C456 /* Release */ = {
+		3B15EFC92E4B84A300938641 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -415,7 +331,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -423,41 +340,41 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		3B94711829FC642D0029C456 /* Debug */ = {
+		3B15EFCB2E4B84A300938641 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2A874C5E957CFE4579D06C2 /* Pods-Passport Reader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Passport Reader/Passport Reader.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 100000000;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Passport Reader/Preview Content\"";
 				DEVELOPMENT_TEAM = CSD8L9EK66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Passport-Reader-Info.plist";
+				INFOPLIST_FILE = "Passport Reader/Passport-Reader-Info.plist";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "Passport capture";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Face capture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.passportreader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -466,31 +383,31 @@
 			};
 			name = Debug;
 		};
-		3B94711929FC642D0029C456 /* Release */ = {
+		3B15EFCC2E4B84A300938641 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1773535619F97C8CA7B1B75 /* Pods-Passport Reader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Passport Reader/Passport Reader.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 100000000;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Passport Reader/Preview Content\"";
 				DEVELOPMENT_TEAM = CSD8L9EK66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Passport-Reader-Info.plist";
+				INFOPLIST_FILE = "Passport Reader/Passport-Reader-Info.plist";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "Passport capture";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Face capture";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appliedrec.passportreader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -502,20 +419,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3B94710429FC642B0029C456 /* Build configuration list for PBXProject "Passport Reader" */ = {
+		3B15EFB72E4B84A000938641 /* Build configuration list for PBXProject "Passport Reader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B94711529FC642D0029C456 /* Debug */,
-				3B94711629FC642D0029C456 /* Release */,
+				3B15EFC82E4B84A300938641 /* Debug */,
+				3B15EFC92E4B84A300938641 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B94711729FC642D0029C456 /* Build configuration list for PBXNativeTarget "Passport Reader" */ = {
+		3B15EFCA2E4B84A300938641 /* Build configuration list for PBXNativeTarget "Passport Reader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B94711829FC642D0029C456 /* Debug */,
-				3B94711929FC642D0029C456 /* Release */,
+				3B15EFCB2E4B84A300938641 /* Debug */,
+				3B15EFCC2E4B84A300938641 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -523,36 +440,85 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3B91013029FC7219008E5D8E /* XCRemoteSwiftPackageReference "NFCPassportReader" */ = {
+		3B15EFCD2E4B84F100938641 /* XCRemoteSwiftPackageReference "NFCPassportReader" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AndyQ/NFCPassportReader";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.2;
+				minimumVersion = 2.1.2;
 			};
 		};
-		3BC1CBC82A006D0F0040FD69 /* XCRemoteSwiftPackageReference "Normal-Distribution-Swift" */ = {
+		3B15EFD02E4B85C900938641 /* XCRemoteSwiftPackageReference "Face-Detection-RetinaFace-Apple" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppliedRecognition/Normal-Distribution-Swift";
+			repositoryURL = "https://github.com/AppliedRecognition/Face-Detection-RetinaFace-Apple.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+		3B15EFD32E4B85DF00938641 /* XCRemoteSwiftPackageReference "Face-Recognition-ArcFace-Apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppliedRecognition/Face-Recognition-ArcFace-Apple.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+		3B15EFD82E4B860700938641 /* XCRemoteSwiftPackageReference "Face-Capture-Apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppliedRecognition/Face-Capture-Apple.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		3B15EFDB2E4B862300938641 /* XCRemoteSwiftPackageReference "Spoof-Device-Detection-Ver-ID-3-Apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppliedRecognition/Spoof-Device-Detection-Ver-ID-3-Apple.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3B91013129FC7219008E5D8E /* NFCPassportReader */ = {
+		3B15EFCE2E4B84F100938641 /* NFCPassportReader */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3B91013029FC7219008E5D8E /* XCRemoteSwiftPackageReference "NFCPassportReader" */;
+			package = 3B15EFCD2E4B84F100938641 /* XCRemoteSwiftPackageReference "NFCPassportReader" */;
 			productName = NFCPassportReader;
 		};
-		3BC1CBC92A006D0F0040FD69 /* NormalDistribution */ = {
+		3B15EFD12E4B85C900938641 /* FaceDetectionRetinaFace */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3BC1CBC82A006D0F0040FD69 /* XCRemoteSwiftPackageReference "Normal-Distribution-Swift" */;
-			productName = NormalDistribution;
+			package = 3B15EFD02E4B85C900938641 /* XCRemoteSwiftPackageReference "Face-Detection-RetinaFace-Apple" */;
+			productName = FaceDetectionRetinaFace;
+		};
+		3B15EFD42E4B85DF00938641 /* FaceRecognitionArcFaceCloud */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B15EFD32E4B85DF00938641 /* XCRemoteSwiftPackageReference "Face-Recognition-ArcFace-Apple" */;
+			productName = FaceRecognitionArcFaceCloud;
+		};
+		3B15EFD62E4B85DF00938641 /* FaceRecognitionArcFaceCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B15EFD32E4B85DF00938641 /* XCRemoteSwiftPackageReference "Face-Recognition-ArcFace-Apple" */;
+			productName = FaceRecognitionArcFaceCore;
+		};
+		3B15EFD92E4B860700938641 /* FaceCapture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B15EFD82E4B860700938641 /* XCRemoteSwiftPackageReference "Face-Capture-Apple" */;
+			productName = FaceCapture;
+		};
+		3B15EFDC2E4B862300938641 /* SpoofDeviceDetection */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B15EFDB2E4B862300938641 /* XCRemoteSwiftPackageReference "Spoof-Device-Detection-Ver-ID-3-Apple" */;
+			productName = SpoofDeviceDetection;
+		};
+		3B15EFDE2E4B862300938641 /* SpoofDeviceDetectionCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B15EFDB2E4B862300938641 /* XCRemoteSwiftPackageReference "Spoof-Device-Detection-Ver-ID-3-Apple" */;
+			productName = SpoofDeviceDetectionCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 3B94710129FC642B0029C456 /* Project object */;
+	rootObject = 3B15EFB42E4B84A000938641 /* Project object */;
 }

@@ -2,131 +2,205 @@
 //  PassportView.swift
 //  Passport Reader
 //
-//  Created by Jakub Dolejs on 01/05/2023.
+//  Created by Jakub Dolejs on 12/08/2025.
 //
 
 import SwiftUI
-import VerIDCore
-import VerIDUI
+import VerIDCommonTypes
+import FaceCapture
+import FaceRecognitionArcFaceCore
+import FaceRecognitionArcFaceCloud
+import FaceDetectionRetinaFace
+import SpoofDeviceDetection
 
-struct PassportView: View {
+@MainActor
+struct PassportView<T: FaceRecognition>: View where T.Version == V24, T.TemplateData == [Float] {
     
-    let faceCapture: FaceCapture
+    let face: Face
+    let image: VerIDCommonTypes.Image
     let name: String
     let details: [DocSection]
-    @EnvironmentObject var verIDLoader: VerIDLoader
-    @StateObject var verIDSessionRunner: VerIDSessionRunner = VerIDSessionRunner()
-    @State var showingComparisonResult: Bool = false
+    let faceImage: UIImage
+    @Binding var navigationPath: NavigationPath
+    @State private var model: FaceMatchingModel<T>
+    @State private var faceCaptureError: Error?
     
-    init(faceCapture: FaceCapture, name: String, details: [DocSection]) {
-        self.faceCapture = faceCapture
+    init(face: Face, image: VerIDCommonTypes.Image, name: String, details: [DocSection], faceRecognition: T, navigationPath: Binding<NavigationPath>) {
+        self.face = face
+        self.image = image
         self.name = name
         self.details = details
+        self.faceImage = FaceImageUtil.cropImage(image, toFace: face)
+        self._model = State(initialValue: FaceMatchingModel(documentFace: face, image: image, faceRecognition: faceRecognition))
+        self._navigationPath = navigationPath
     }
     
     var body: some View {
-        if let faceCapture = self.verIDSessionRunner.sessionResult?.faceCaptures.first(where: { $0.bearing == .straight }), self.showingComparisonResult {
-            NavigationLink(isActive: self.$showingComparisonResult) {
-                FaceComparisonView(documentFace: self.faceCapture, liveFace: faceCapture)
-            } label: {
-                EmptyView()
-            }
-        } else {
-            ZStack {
-                GeometryReader { proxy in
-                    VStack {
-                        Spacer()
-                        Image("selfie").resizable().aspectRatio(contentMode: .fit).frame(width: proxy.size.width + proxy.safeAreaInsets.leading + proxy.safeAreaInsets.trailing, height: proxy.size.height + proxy.safeAreaInsets.bottom, alignment: .bottomTrailing).offset(y: proxy.safeAreaInsets.bottom)
-                    }.ignoresSafeArea()
-                }
-                VStack(alignment: .leading) {
-                    HStack {
-                        NavigationLink {
-                            PassportDetailsView(details: self.details)
-                        } label: {
-                            Image(uiImage: self.faceCapture.faceImage)
+        ZStack {
+            Image("selfie")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 300)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                .ignoresSafeArea()
+            switch self.model.phase {
+            case .idle, .extractingDocumentTemplate, .capturingSelfie:
+                VStack(alignment: .leading, spacing: 16) {
+                    if let docHolderSection = self.details.first(where: { section in
+                        section.name == "Document holder"
+                    }) {
+                        HStack(alignment: .top, spacing: 8) {
+                            VStack(spacing: 8) {
+                                ForEach(docHolderSection.rows.filter { $0.name != "First name" && $0.name != "Last name" }) { row in
+                                    HStack {
+                                        Text(row.name)
+                                        Spacer()
+                                        Text(row.value)
+                                            .lineLimit(1)
+                                            .truncationMode(.middle)
+                                    }
+                                }
+                            }
+                            .frame(maxWidth: 320)
+                            Spacer()
+                            Image(uiImage: self.faceImage)
                                 .resizable()
-                                .aspectRatio(4/5, contentMode: .fit)
-                                .frame(height: 150)
-                                .cornerRadius(8)
+                                .aspectRatio(1, contentMode: .fill)
+                                .frame(width: 80, height: 80)
+                                .clipShape(RoundedRectangle(cornerRadius: 16))
                         }
-                        Spacer()
                     }
-                    HStack {
-                        VerIDButton(label: "Compare to selfie") {
-                            self.captureSelfie()
-                        }
-                        Spacer()
+                    Button {
+                        self.captureFace()
+                    } label: {
+                        Image(systemName: "camera.fill")
+                        Text("Capture face")
                     }
-                    .padding(.top, 16)
+                    .buttonStyle(.borderedProminent)
+                    
+                    Button {
+                        self.navigationPath.append(Route.tips)
+                    } label: {
+                        Image(systemName: "questionmark.circle")
+                        Text("Face capture tips")
+                    }
                     Spacer()
                 }
                 .padding()
+                .frame(maxWidth: .infinity, alignment: .topLeading)
+            case .extractingSelfieTemplate, .comparing:
+                VStack(spacing: 16) {
+                    ProgressView().progressViewStyle(.circular)
+                    Text("Comparing faces")
+                }
+                .padding(.bottom, 100)
+            case .done(selfieFace: _, score: _):
+                EmptyView()
+            case .failed(let error):
+                VStack(spacing: 16) {
+                    Text("Error").font(.title)
+                    Text(error.localizedDescription)
+                }
+                .padding(.bottom, 100)
             }
-            .navigationTitle(self.name)
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink {
-                        PassportDetailsView(details: self.details)
-                    } label: {
-                        Text("Details")
+        }
+        .navigationTitle(self.name)
+        .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    self.navigationPath.append(Route.documentDetails(documentFace: self.face, documentImage: self.image, details: self.details))
+                } label: {
+                    Image(systemName: "rectangle.and.text.magnifyingglass")
+                }
+            }
+        }
+        .task {
+            self.model.start()
+        }
+        .onChange(of: self.model.phase) { _, phase in
+            if case .done(selfieFace: let selfieFace, score: let score) = phase {
+                self.navigationPath.append(Route.comparison(documentFace: self.face, documentImage: self.image, selfieFace: selfieFace.face, selfieImage: selfieFace.image, score: score, name: self.name))
+            }
+        }
+        .alert("Face capture failed", isPresented: Binding(get: { self.faceCaptureError != nil }, set: { if !$0 { self.faceCaptureError = nil }}), presenting: self.faceCaptureError) { error in
+            Button(role: .cancel) {} label: {
+                Text("OK")
+            }
+        } message: { error in
+            if error is LocalizedError {
+                Text(error.localizedDescription)
+            } else {
+                EmptyView()
+            }
+        }
+    }
+    
+    private func captureFace() {
+        Task(priority: .high) {
+            do {
+                let result = await FaceCapture.captureFaces { config in
+                    config.faceDetection = try FaceDetectionRetinaFace()
+                    config.useBackCamera = false
+                    if FaceCaptureSession.supportsDepthCaptureOnDeviceAt(.front) {
+                        config.faceTrackingPlugins = [DepthLivenessDetection()]
+                    } else if let apiKey = Bundle.main.object(forInfoDictionaryKey: "SpoofDetectionApiKey") as? String, let urlString = Bundle.main.object(forInfoDictionaryKey: "SpoofDetectionApiUrl") as? String, let url = URL(string: urlString) {
+                        let spoofDetector = SpoofDeviceDetection(apiKey: apiKey, url: url)
+                        config.faceTrackingPlugins = [try LivenessDetectionPlugin(spoofDetectors: [spoofDetector])]
                     }
+                }
+                switch result {
+                case .success(capturedFaces: let faces, metadata: _):
+                    let capturedFace = faces.first!
+                    self.model.onSelfie(capturedFace)
+                case .failure(capturedFaces: _, metadata: _, error: let error):
+                    throw error
+                case .cancelled:
+                    break
+                }
+            } catch {
+                await MainActor.run {
+                    self.faceCaptureError = error
                 }
             }
         }
     }
+}
+
+class MockFaceRecognition: FaceRecognition {
     
-    private func captureSelfie() {
-        guard let result = self.verIDLoader.result, case .success(let verID) = result else {
-            return
+    typealias Version = V24
+    typealias TemplateData = [Float]
+    
+    func createFaceRecognitionTemplates(from faces: [VerIDCommonTypes.Face], in image: VerIDCommonTypes.Image) async throws -> [VerIDCommonTypes.FaceTemplate<V24, [Float]>] {
+        return faces.map { _ in
+            FaceTemplate(data: [0.5])
         }
-        self.verIDSessionRunner.sessionResult = nil
-        self.showingComparisonResult = true
-        self.verIDSessionRunner.startSession(verID: verID)
+    }
+    
+    func compareFaceRecognitionTemplates(_ faceRecognitionTemplates: [VerIDCommonTypes.FaceTemplate<V24, [Float]>], to template: VerIDCommonTypes.FaceTemplate<V24, [Float]>) async throws -> [Float] {
+        return faceRecognitionTemplates.map { _ in
+            0.6
+        }
     }
 }
 
-struct VerIDButton: View {
-    
-    @EnvironmentObject var verIDLoader: VerIDLoader
-    
-    let label: String
-    let onTap: () -> Void
-    
-    init(label: String, onTap: @escaping () -> Void) {
-        self.label = label
-        self.onTap = onTap
-    }
-    
-    var body: some View {
-        switch verIDLoader.result {
-        case .none:
-            Button {
-                
-            } label: {
-                ProgressView()
-                    .progressViewStyle(.circular)
-                    .padding(.trailing, 1)
-                Text(self.label)
-            }
-            .buttonStyle(.borderedProminent)
-            .disabled(true)
-        case .success(_):
-            Button(action: self.onTap) {
-                Image(systemName: "camera.fill")
-                Text(self.label)
-            }
-            .buttonStyle(.borderedProminent)
-        case .failure(_):
-            Button {
-                
-            } label: {
-                Image(systemName: "hand.raised.fill")
-                Text(self.label)
-            }
-            .buttonStyle(.borderedProminent)
-            .disabled(true)
-        }
+#Preview {
+    NavigationStack {
+        let image = VerIDCommonTypes.Image(cgImage: UIImage(systemName: "person")!.cgImage!)!
+        PassportView(
+            face: Face(bounds: CGRect(origin: .zero, size: image.size), angle: .identity, quality: 0, landmarks: [], leftEye: .zero, rightEye: .zero, noseTip: .zero),
+            image: image,
+            name: "Lazy Cheetah",
+            details: [DocSection(name: "Document holder", rows: [
+                DocSectionRow(name: "First name", value: "Lazy"),
+                DocSectionRow(name: "Last name", value: "Cheetah"),
+                DocSectionRow(name: "Nationality", value: "Kenya"),
+                DocSectionRow(name: "Sex", value: "Female"),
+                DocSectionRow(name: "Date of birth", value: "1 October, 2000")
+            ])],
+            faceRecognition: MockFaceRecognition(),
+            navigationPath: .constant(NavigationPath())
+        )
     }
 }

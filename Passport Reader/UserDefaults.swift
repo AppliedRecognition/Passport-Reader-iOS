@@ -1,8 +1,8 @@
 //
-//  UserDefaults+PassportReader.swift
+//  UserDefaults.swift
 //  Passport Reader
 //
-//  Created by Jakub Dolejs on 01/05/2023.
+//  Created by Jakub Dolejs on 12/08/2025.
 //
 
 import Foundation
