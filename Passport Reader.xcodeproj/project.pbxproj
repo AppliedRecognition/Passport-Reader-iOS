@@ -453,7 +453,7 @@
 			repositoryURL = "https://github.com/AppliedRecognition/Face-Detection-RetinaFace-Apple.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.3;
+				minimumVersion = 1.0.4;
 			};
 		};
 		3B15EFD32E4B85DF00938641 /* XCRemoteSwiftPackageReference "Face-Recognition-ArcFace-Apple" */ = {
@@ -461,7 +461,7 @@
 			repositoryURL = "https://github.com/AppliedRecognition/Face-Recognition-ArcFace-Apple.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
+				minimumVersion = 1.1.0;
 			};
 		};
 		3B15EFD82E4B860700938641 /* XCRemoteSwiftPackageReference "Face-Capture-Apple" */ = {
@@ -469,7 +469,7 @@
 			repositoryURL = "https://github.com/AppliedRecognition/Face-Capture-Apple.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 2.0.1;
 			};
 		};
 		3B15EFDB2E4B862300938641 /* XCRemoteSwiftPackageReference "Spoof-Device-Detection-Ver-ID-3-Apple" */ = {
@@ -477,7 +477,7 @@
 			repositoryURL = "https://github.com/AppliedRecognition/Spoof-Device-Detection-Ver-ID-3-Apple.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
+				minimumVersion = 1.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
