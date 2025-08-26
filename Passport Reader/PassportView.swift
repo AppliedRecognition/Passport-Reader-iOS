@@ -168,6 +168,7 @@ struct PassportView<T: FaceRecognition>: View where T.Version == V24, T.Template
 }
 
 class MockFaceRecognition: FaceRecognition {
+    var defaultThreshold: Float = 0.5
     
     typealias Version = V24
     typealias TemplateData = [Float]
