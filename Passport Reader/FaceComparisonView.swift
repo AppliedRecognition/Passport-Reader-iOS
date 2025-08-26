@@ -13,7 +13,7 @@ struct FaceComparisonView: View {
     let selfieFaceImage: UIImage
     let score: Float
     let name: String
-    let threshold: Float = 0.5
+    let threshold: Float
     let message: String
     let title: String
     
@@ -22,6 +22,7 @@ struct FaceComparisonView: View {
         self.selfieFaceImage = selfieFaceImage
         self.score = score
         self.name = name
+        self.threshold = faceRecognition.defaultThreshold
         self.message = score >= threshold ?
             String(format: "The comparison score %.02f suggests that the captured face is %@.", self.score, self.name) :
             String(format: "The comparison score %.02f suggests that the captured face is not %@.", self.score, self.name)
@@ -61,7 +62,7 @@ struct FaceComparisonView: View {
         FaceComparisonView(
             documentFaceImage: UIImage(systemName: "person")!,
             selfieFaceImage: UIImage(systemName: "person.fill")!,
-            score: 0.5,
+            score: 0.7,
             name: "Lazy Cheetah"
         )
     }
