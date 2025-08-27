@@ -102,10 +102,10 @@ struct ContentView: View {
                 let result = try await self.passportReader.readPassport(mrzKey: self.bac.key, tags: tags)
                 let name = "\(result.firstName) \(result.lastName)".trimmingCharacters(in: .whitespaces)
                 guard let image = result.passportImage, let cgImage = image.cgImage, let veridImage = VerIDCommonTypes.Image(cgImage: cgImage) else {
-                    throw NSError()
+                    throw ImageError.imageConversionFailed
                 }
                 guard let face = try await FaceDetectionRetinaFace().detectFacesInImage(veridImage, limit: 1).first else {
-                    throw NSError()
+                    throw FaceDetectionError.noFaceDetected
                 }
                 await MainActor.run {
                     self.navigationPath.append(Route.document(face: face, image: veridImage, name: NameUtil.humanizeName(name), details: result.list))

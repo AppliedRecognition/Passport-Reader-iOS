@@ -135,7 +135,7 @@ final class FaceMatchingModel<T: FaceRecognition> where T.TemplateData == [Float
                 let score = try await self.faceRecognition.compareFaceRecognitionTemplates([t1], to: t2).first!
                 await MainActor.run {
                     guard let selfieFace = self.selfieFace else {
-                        self.phase = .failed(NSError())
+                        self.phase = .failed(FaceMatchingError.missingSelfieFace)
                         return
                     }
                     self.phase = .done(selfieFace: selfieFace, score: score)
