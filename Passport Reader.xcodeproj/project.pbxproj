@@ -31,6 +31,7 @@
 		3B22A98E2E4CEAA5006D5A2D /* NameUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22A98D2E4CEAA5006D5A2D /* NameUtil.swift */; };
 		3B22A9902E4D0071006D5A2D /* PassportDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22A98F2E4D0071006D5A2D /* PassportDetailsView.swift */; };
 		3B22A9922E4D21D6006D5A2D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22A9912E4D21D6006D5A2D /* AboutView.swift */; };
+		3B8321432E5F0C180030BCCB /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8321422E5F0C180030BCCB /* Errors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		3B22A98D2E4CEAA5006D5A2D /* NameUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameUtil.swift; sourceTree = "<group>"; };
 		3B22A98F2E4D0071006D5A2D /* PassportDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportDetailsView.swift; sourceTree = "<group>"; };
 		3B22A9912E4D21D6006D5A2D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		3B8321422E5F0C180030BCCB /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				3B22A98D2E4CEAA5006D5A2D /* NameUtil.swift */,
 				3B22A98F2E4D0071006D5A2D /* PassportDetailsView.swift */,
 				3B22A9912E4D21D6006D5A2D /* AboutView.swift */,
+				3B8321422E5F0C180030BCCB /* Errors.swift */,
 			);
 			path = "Passport Reader";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B15EFE92E4B989B00938641 /* NFCPassportModel.swift in Sources */,
+				3B8321432E5F0C180030BCCB /* Errors.swift in Sources */,
 				3B15EFC22E4B84A000938641 /* ContentView.swift in Sources */,
 				3B15EFEE2E4BD70D00938641 /* FaceImageUtil.swift in Sources */,
 				3B15EFC02E4B84A000938641 /* Passport_ReaderApp.swift in Sources */,
