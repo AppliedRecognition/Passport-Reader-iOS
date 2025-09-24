@@ -1,12 +1,13 @@
 {
+  "originHash" : "1569058ffc29f81a86847219cbdc560d748302a45ddc4dcd4a9907c3190b1b56",
   "pins" : [
     {
       "identity" : "face-capture-apple",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AppliedRecognition/Face-Capture-Apple.git",
       "state" : {
-        "revision" : "8c1823fce5cbe6c15356422d3312972c524a1373",
-        "version" : "2.0.1"
+        "revision" : "f63855df17a129262730b7ae43d0037f6f235528",
+        "version" : "2.1.0"
       }
     },
     {
@@ -14,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AppliedRecognition/Face-Detection-RetinaFace-Apple.git",
       "state" : {
-        "revision" : "4e953f0212c94e0f9794bcd75d1243396f5aae10",
-        "version" : "1.0.4"
+        "revision" : "5daf9664f60f10910667b948d1507b585514d8b3",
+        "version" : "1.0.5"
       }
     },
     {
@@ -23,8 +24,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AppliedRecognition/Face-Recognition-ArcFace-Apple.git",
       "state" : {
-        "revision" : "54edc977daf8fc68e9b0a26b93da03bcb861c2ee",
-        "version" : "1.1.1"
+        "revision" : "8cce8e3472d8ee0548df1cbe3055417f6a7ba920",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "facial-attribute-detection-apple",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AppliedRecognition/Facial-Attribute-Detection-Apple.git",
+      "state" : {
+        "revision" : "67524da7eb87a7684c4c4a7fcd0595f08ae0a9db",
+        "version" : "1.0.0"
       }
     },
     {
@@ -32,8 +42,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AndyQ/NFCPassportReader",
       "state" : {
-        "revision" : "00bd4a336bc36af0a978c76e7461031ca99e576a",
-        "version" : "2.1.2"
+        "revision" : "4a29a9b954c8ea0d4d35b96af6fe1849258b31e1",
+        "version" : "2.2.0"
+      }
+    },
+    {
+      "identity" : "onnxruntime-swift-package-manager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/microsoft/onnxruntime-swift-package-manager.git",
+      "state" : {
+        "revision" : "12ce7374c86944e1f68f3a866d10105d8357f074",
+        "version" : "1.20.0"
       }
     },
     {
@@ -41,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/OpenSSL.git",
       "state" : {
-        "revision" : "8cb1d641ab5ebce2cd7cf31c93baef07bed672d4",
-        "version" : "1.1.2301"
+        "revision" : "623c84da314e85363236507ca38a4bde65df21c3",
+        "version" : "3.3.3001"
       }
     },
     {
@@ -59,10 +78,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AppliedRecognition/Ver-ID-Common-Types-Apple.git",
       "state" : {
-        "revision" : "2ca2404344966ef1feb18b5b676beb51138a7792",
-        "version" : "3.0.0"
+        "revision" : "15e5c9cbc2a8fbe20ad4942cc9cf2623cfca30fb",
+        "version" : "3.1.1"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
