@@ -11,6 +11,9 @@ import VerIDCommonTypes
 import FaceCapture
 import FaceRecognitionArcFaceCore
 import FaceRecognitionArcFaceCloud
+import FacialAttributeDetectionCore
+import EyewearDetection
+import FaceCoveringDetection
 
 @MainActor
 @Observable
@@ -22,7 +25,7 @@ final class FaceMatchingModel<T: FaceRecognition> where T.TemplateData == [Float
         case capturingSelfie
         case extractingSelfieTemplate
         case comparing
-        case done(selfieFace: CapturedFace, score: Float)
+        case done(selfieFace: CapturedFace, score: Float, glassesDetected: Bool)
         case failed(Error)
         
         static func == (lhs: Phase, rhs: Phase) -> Bool {
@@ -34,8 +37,8 @@ final class FaceMatchingModel<T: FaceRecognition> where T.TemplateData == [Float
                 (.comparing, .comparing):
                 return true
                 
-            case let (.done(a, a2), .done(b, b2)):
-                return a == b && a2 == b2
+            case let (.done(a, a2, a3), .done(b, b2, b3)):
+                return a == b && a2 == b2 && a3 == b3
                 
             case (.failed, .failed):
                 return true
@@ -49,14 +52,19 @@ final class FaceMatchingModel<T: FaceRecognition> where T.TemplateData == [Float
     private let documentFace: Face
     private let documentImage: VerIDCommonTypes.Image
     private let faceRecognition: T
+    private let faceCoveringDetector: FaceCoveringDetector?
+    private let eyewearDetector: EyewearDetector?
     private var documentTemplate: FaceTemplate<T.Version, T.TemplateData>?
     private var selfieFace: CapturedFace?
     private var selfieTemplate: FaceTemplate<T.Version, T.TemplateData>?
+    private var glassesDetected: Bool = false
     
     init(documentFace: Face, image: VerIDCommonTypes.Image, faceRecognition: T) {
         self.documentFace = documentFace
         self.documentImage = image
         self.faceRecognition = faceRecognition
+        self.faceCoveringDetector = try? FaceCoveringDetector()
+        self.eyewearDetector = try? EyewearDetector()
     }
     
     func start() {
@@ -77,9 +85,10 @@ final class FaceMatchingModel<T: FaceRecognition> where T.TemplateData == [Float
                     }
                 }
             }
-        } else if case .done(_, _) = phase {
+        } else if case .done(_, _, _) = phase {
             selfieFace = nil
             selfieTemplate = nil
+            glassesDetected = false
             phase = .capturingSelfie
         }
     }
@@ -106,9 +115,23 @@ final class FaceMatchingModel<T: FaceRecognition> where T.TemplateData == [Float
                 return
             }
             do {
+                if (try await self.faceCoveringDetector?.detect(in: capturedFace.face, image: capturedFace.image)) != nil {
+                    throw FaceAttributeError.faceCoveringDetected
+                }
+                let glassesDetected: Bool
+                if let eyewear = try await self.eyewearDetector?.detect(in: capturedFace.face, image: capturedFace.image) {
+                    if eyewear.type == .sunglasses {
+                        throw FaceAttributeError.sunglassesDetected
+                    } else {
+                        glassesDetected = true
+                    }
+                } else {
+                    glassesDetected = false
+                }
                 let template = try await self.faceRecognition.createFaceRecognitionTemplates(from: [capturedFace.face], in: capturedFace.image).first!
                 await MainActor.run {
                     self.selfieTemplate = template
+                    self.glassesDetected = glassesDetected
                     self.next()
                 }
             } catch {
@@ -138,7 +161,7 @@ final class FaceMatchingModel<T: FaceRecognition> where T.TemplateData == [Float
                         self.phase = .failed(FaceMatchingError.missingSelfieFace)
                         return
                     }
-                    self.phase = .done(selfieFace: selfieFace, score: score)
+                    self.phase = .done(selfieFace: selfieFace, score: score, glassesDetected: self.glassesDetected)
                 }
             } catch {
                 await MainActor.run {

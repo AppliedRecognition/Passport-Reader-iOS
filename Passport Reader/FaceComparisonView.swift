@@ -14,10 +14,10 @@ struct FaceComparisonView: View {
     let score: Float
     let name: String
     let threshold: Float
-    let message: String
+    var message: String
     let title: String
     
-    init(documentFaceImage: UIImage, selfieFaceImage: UIImage, score: Float, name: String) {
+    init(documentFaceImage: UIImage, selfieFaceImage: UIImage, score: Float, name: String, glassesDetected: Bool) {
         self.documentFaceImage = documentFaceImage
         self.selfieFaceImage = selfieFaceImage
         self.score = score
@@ -27,6 +27,9 @@ struct FaceComparisonView: View {
             String(format: "The comparison score %.02f suggests that the captured face is %@.", self.score, self.name) :
             String(format: "The comparison score %.02f suggests that the captured face is not %@.", self.score, self.name)
         self.title = score >= threshold ? name : "Not \(name)"
+        if glassesDetected && score < threshold {
+            self.message.append(" Face recognition accuracy may be affected by the presence of glasses.")
+        }
     }
     
     var body: some View {
@@ -63,7 +66,8 @@ struct FaceComparisonView: View {
             documentFaceImage: UIImage(systemName: "person")!,
             selfieFaceImage: UIImage(systemName: "person.fill")!,
             score: 0.7,
-            name: "Lazy Cheetah"
+            name: "Lazy Cheetah",
+            glassesDetected: false
         )
     }
 }
@@ -74,7 +78,8 @@ struct FaceComparisonView: View {
             documentFaceImage: UIImage(systemName: "person")!,
             selfieFaceImage: UIImage(systemName: "person.fill")!,
             score: 0.2,
-            name: "Lazy Cheetah"
+            name: "Lazy Cheetah",
+            glassesDetected: true
         )
     }
 }

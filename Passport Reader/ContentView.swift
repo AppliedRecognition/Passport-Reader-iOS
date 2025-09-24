@@ -68,10 +68,10 @@ struct ContentView: View {
                 switch route {
                 case .document(face: let face, image: let image, name: let name, details: let details):
                     PassportView(face: face, image: image, name: name, details: details, faceRecognition: faceRecognition, navigationPath: self.$navigationPath)
-                case .comparison(documentFace: let face1, documentImage: let image1, selfieFace: let face2, selfieImage: let image2, score: let score, name: let name):
+                case .comparison(documentFace: let face1, documentImage: let image1, selfieFace: let face2, selfieImage: let image2, score: let score, name: let name, glassesDetected: let glassesDetected):
                     let docImage = FaceImageUtil.cropImage(image1, toFace: face1)
                     let selfieImage = FaceImageUtil.cropImage(image2, toFace: face2)
-                    FaceComparisonView(documentFaceImage: docImage, selfieFaceImage: selfieImage, score: score, name: name)
+                    FaceComparisonView(documentFaceImage: docImage, selfieFaceImage: selfieImage, score: score, name: name, glassesDetected: glassesDetected)
                 case .documentDetails(documentFace: let face, documentImage: let image, details: let details):
                     PassportDetailsView(face: face, image: image, details: details)
                 case .about:
@@ -123,7 +123,7 @@ struct ContentView: View {
 
 enum Route: Hashable {
     case document(face: Face, image: VerIDCommonTypes.Image, name: String, details: [DocSection])
-    case comparison(documentFace: Face, documentImage: VerIDCommonTypes.Image, selfieFace: Face, selfieImage: VerIDCommonTypes.Image, score: Float, name: String)
+    case comparison(documentFace: Face, documentImage: VerIDCommonTypes.Image, selfieFace: Face, selfieImage: VerIDCommonTypes.Image, score: Float, name: String, glassesDetected: Bool)
     case documentDetails(documentFace: Face, documentImage: VerIDCommonTypes.Image, details: [DocSection])
     case about
     case tips

@@ -94,7 +94,7 @@ struct PassportView<T: FaceRecognition>: View where T.Version == V24, T.Template
                     Text("Comparing faces")
                 }
                 .padding(.bottom, 100)
-            case .done(selfieFace: _, score: _):
+            case .done(selfieFace: _, score: _, glassesDetected: _):
                 EmptyView()
             case .failed(let error):
                 VStack(spacing: 16) {
@@ -119,8 +119,8 @@ struct PassportView<T: FaceRecognition>: View where T.Version == V24, T.Template
             self.model.start()
         }
         .onChange(of: self.model.phase) { _, phase in
-            if case .done(selfieFace: let selfieFace, score: let score) = phase {
-                self.navigationPath.append(Route.comparison(documentFace: self.face, documentImage: self.image, selfieFace: selfieFace.face, selfieImage: selfieFace.image, score: score, name: self.name))
+            if case .done(selfieFace: let selfieFace, score: let score, glassesDetected: let glassesDetected) = phase {
+                self.navigationPath.append(Route.comparison(documentFace: self.face, documentImage: self.image, selfieFace: selfieFace.face, selfieImage: selfieFace.image, score: score, name: self.name, glassesDetected: glassesDetected))
             }
         }
         .alert("Face capture failed", isPresented: Binding(get: { self.faceCaptureError != nil }, set: { if !$0 { self.faceCaptureError = nil }}), presenting: self.faceCaptureError) { error in
