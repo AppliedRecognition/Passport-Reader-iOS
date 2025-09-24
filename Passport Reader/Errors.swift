@@ -39,3 +39,17 @@ enum FaceMatchingError: LocalizedError {
         }
     }
 }
+
+enum FaceAttributeError: LocalizedError {
+    case faceCoveringDetected
+    case sunglassesDetected
+    
+    var errorDescription: String? {
+        switch self {
+        case .faceCoveringDetected:
+            return NSLocalizedString("Detected face covering", comment: "")
+        case .sunglassesDetected:
+            return NSLocalizedString("Detected sunglasses", comment: "")
+        }
+    }
+}

@@ -14,7 +14,7 @@ class Bac: NSObject, ObservableObject, Codable {
             self.updateUserDefaults()
         }
     }
-    @Published var dateOfBirth: Date = .now.addingTimeInterval(-365 * 30 * 24 * 60 * 60) {
+    @Published var dateOfBirth: Date = .now.addingTimeInterval(Double(-365 * 30 * 24 * 60 * 60)) {
         didSet {
             self.updateUserDefaults()
         }
