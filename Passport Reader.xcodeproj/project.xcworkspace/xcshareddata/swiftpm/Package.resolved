@@ -1,5 +1,5 @@
 {
-  "originHash" : "1569058ffc29f81a86847219cbdc560d748302a45ddc4dcd4a9907c3190b1b56",
+  "originHash" : "11e8a2ab9080c71011141f36152f4d0f04714df41ea33fdd02e8bdcdc2086847",
   "pins" : [
     {
       "identity" : "face-capture-apple",
@@ -24,8 +24,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AppliedRecognition/Face-Recognition-ArcFace-Apple.git",
       "state" : {
-        "revision" : "8cce8e3472d8ee0548df1cbe3055417f6a7ba920",
-        "version" : "1.2.0"
+        "revision" : "4565f6eafbf699f9522e3b4da964315257277d7a",
+        "version" : "1.2.2"
+      }
+    },
+    {
+      "identity" : "face-recognition-r300-apple",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AppliedRecognition/Face-Recognition-R300-Apple.git",
+      "state" : {
+        "revision" : "c8fa948265e65cb6a540b0a01ab94e71d6477266",
+        "version" : "1.0.0"
       }
     },
     {
@@ -78,8 +87,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AppliedRecognition/Ver-ID-Common-Types-Apple.git",
       "state" : {
-        "revision" : "15e5c9cbc2a8fbe20ad4942cc9cf2623cfca30fb",
-        "version" : "3.1.1"
+        "revision" : "c79cd076f98da9dc71e199b505f3e79a06075581",
+        "version" : "3.2.2"
       }
     }
   ],

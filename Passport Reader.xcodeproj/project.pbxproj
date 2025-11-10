@@ -35,6 +35,8 @@
 		3B6B5E8B2E84411B001CD80D /* FaceCoveringDetection in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6B5E8A2E84411B001CD80D /* FaceCoveringDetection */; };
 		3B6B5E8D2E84411B001CD80D /* FacialAttributeDetectionCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6B5E8C2E84411B001CD80D /* FacialAttributeDetectionCore */; };
 		3B8321432E5F0C180030BCCB /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8321422E5F0C180030BCCB /* Errors.swift */; };
+		3BA1A63F2EC25C86000C409A /* FaceRecognitionR300Cloud in Frameworks */ = {isa = PBXBuildFile; productRef = 3BA1A63E2EC25C86000C409A /* FaceRecognitionR300Cloud */; };
+		3BA1A6412EC25C86000C409A /* FaceRecognitionR300Core in Frameworks */ = {isa = PBXBuildFile; productRef = 3BA1A6402EC25C86000C409A /* FaceRecognitionR300Core */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,12 +70,14 @@
 			files = (
 				3B6B5E8D2E84411B001CD80D /* FacialAttributeDetectionCore in Frameworks */,
 				3B15EFDD2E4B862300938641 /* SpoofDeviceDetection in Frameworks */,
+				3BA1A63F2EC25C86000C409A /* FaceRecognitionR300Cloud in Frameworks */,
 				3B6B5E892E84411B001CD80D /* EyewearDetection in Frameworks */,
 				3B15EFD72E4B85DF00938641 /* FaceRecognitionArcFaceCore in Frameworks */,
 				3B15EFDF2E4B862300938641 /* SpoofDeviceDetectionCore in Frameworks */,
 				3B6B5E8B2E84411B001CD80D /* FaceCoveringDetection in Frameworks */,
 				3B15EFCF2E4B84F100938641 /* NFCPassportReader in Frameworks */,
 				3B15EFD22E4B85C900938641 /* FaceDetectionRetinaFace in Frameworks */,
+				3BA1A6412EC25C86000C409A /* FaceRecognitionR300Core in Frameworks */,
 				3B15EFD52E4B85DF00938641 /* FaceRecognitionArcFaceCloud in Frameworks */,
 				3B15EFDA2E4B860700938641 /* FaceCapture in Frameworks */,
 			);
@@ -160,6 +164,8 @@
 				3B6B5E882E84411B001CD80D /* EyewearDetection */,
 				3B6B5E8A2E84411B001CD80D /* FaceCoveringDetection */,
 				3B6B5E8C2E84411B001CD80D /* FacialAttributeDetectionCore */,
+				3BA1A63E2EC25C86000C409A /* FaceRecognitionR300Cloud */,
+				3BA1A6402EC25C86000C409A /* FaceRecognitionR300Core */,
 			);
 			productName = "Passport Reader";
 			productReference = 3B15EFBC2E4B84A000938641 /* Passport Reader.app */;
@@ -196,6 +202,7 @@
 				3B15EFD82E4B860700938641 /* XCRemoteSwiftPackageReference "Face-Capture-Apple" */,
 				3B15EFDB2E4B862300938641 /* XCRemoteSwiftPackageReference "Spoof-Device-Detection-Ver-ID-3-Apple" */,
 				3B6B5E872E84411B001CD80D /* XCRemoteSwiftPackageReference "Facial-Attribute-Detection-Apple" */,
+				3BA1A63D2EC25C86000C409A /* XCRemoteSwiftPackageReference "Face-Recognition-R300-Apple" */,
 			);
 			productRefGroup = 3B15EFBD2E4B84A000938641 /* Products */;
 			projectDirPath = "";
@@ -502,6 +509,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		3BA1A63D2EC25C86000C409A /* XCRemoteSwiftPackageReference "Face-Recognition-R300-Apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppliedRecognition/Face-Recognition-R300-Apple.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -554,6 +569,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B6B5E872E84411B001CD80D /* XCRemoteSwiftPackageReference "Facial-Attribute-Detection-Apple" */;
 			productName = FacialAttributeDetectionCore;
+		};
+		3BA1A63E2EC25C86000C409A /* FaceRecognitionR300Cloud */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BA1A63D2EC25C86000C409A /* XCRemoteSwiftPackageReference "Face-Recognition-R300-Apple" */;
+			productName = FaceRecognitionR300Cloud;
+		};
+		3BA1A6402EC25C86000C409A /* FaceRecognitionR300Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BA1A63D2EC25C86000C409A /* XCRemoteSwiftPackageReference "Face-Recognition-R300-Apple" */;
+			productName = FaceRecognitionR300Core;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

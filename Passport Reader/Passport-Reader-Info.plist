@@ -5,7 +5,7 @@
 	<key>FaceRecognitionApiKey</key>
 	<string>BK1aJ1vpb08InLtOsdmhL6ZiRDJtq0H89nPqVuzB</string>
 	<key>FaceRecognitionUrl</key>
-	<string>https://itnlej3459.execute-api.us-east-1.amazonaws.com/Prod/extract_face_templates</string>
+	<string>https://9qz4sdd2ga.execute-api.us-east-1.amazonaws.com/Prod/extract_face_templates</string>
 	<key>SpoofDetectionApiKey</key>
 	<string>BK1aJ1vpb08InLtOsdmhL6ZiRDJtq0H89nPqVuzB</string>
 	<key>SpoofDetectionUrl</key>
