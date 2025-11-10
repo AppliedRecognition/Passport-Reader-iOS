@@ -8,13 +8,13 @@
 import SwiftUI
 import VerIDCommonTypes
 import FaceCapture
-import FaceRecognitionArcFaceCore
-import FaceRecognitionArcFaceCloud
+import FaceRecognitionR300Core
+import FaceRecognitionR300Cloud
 import FaceDetectionRetinaFace
 import SpoofDeviceDetection
 
 @MainActor
-struct PassportView<T: FaceRecognition>: View where T.Version == V24, T.TemplateData == [Float] {
+struct PassportView<T: FaceRecognition>: View where T.Version == R300, T.TemplateData == [Float] {
     
     let face: Face
     let image: VerIDCommonTypes.Image
@@ -170,16 +170,16 @@ struct PassportView<T: FaceRecognition>: View where T.Version == V24, T.Template
 class MockFaceRecognition: FaceRecognition {
     var defaultThreshold: Float = 0.5
     
-    typealias Version = V24
+    typealias Version = R300
     typealias TemplateData = [Float]
     
-    func createFaceRecognitionTemplates(from faces: [VerIDCommonTypes.Face], in image: VerIDCommonTypes.Image) async throws -> [VerIDCommonTypes.FaceTemplate<V24, [Float]>] {
+    func createFaceRecognitionTemplates(from faces: [VerIDCommonTypes.Face], in image: VerIDCommonTypes.Image) async throws -> [VerIDCommonTypes.FaceTemplate<R300, [Float]>] {
         return faces.map { _ in
             FaceTemplate(data: [0.5])
         }
     }
     
-    func compareFaceRecognitionTemplates(_ faceRecognitionTemplates: [VerIDCommonTypes.FaceTemplate<V24, [Float]>], to template: VerIDCommonTypes.FaceTemplate<V24, [Float]>) async throws -> [Float] {
+    func compareFaceRecognitionTemplates(_ faceRecognitionTemplates: [VerIDCommonTypes.FaceTemplate<R300, [Float]>], to template: VerIDCommonTypes.FaceTemplate<R300, [Float]>) async throws -> [Float] {
         return faceRecognitionTemplates.map { _ in
             0.6
         }

@@ -9,15 +9,15 @@ import Foundation
 import SwiftUI
 import VerIDCommonTypes
 import FaceCapture
-import FaceRecognitionArcFaceCore
-import FaceRecognitionArcFaceCloud
+import FaceRecognitionR300Core
+import FaceRecognitionR300Cloud
 import FacialAttributeDetectionCore
 import EyewearDetection
 import FaceCoveringDetection
 
 @MainActor
 @Observable
-final class FaceMatchingModel<T: FaceRecognition> where T.TemplateData == [Float], T.Version == V24 {
+final class FaceMatchingModel<T: FaceRecognition> where T.TemplateData == [Float], T.Version == R300 {
     
     enum Phase: Equatable {
         case idle

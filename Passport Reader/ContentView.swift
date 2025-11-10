@@ -9,7 +9,7 @@ import SwiftUI
 import NFCPassportReader
 import FaceDetectionRetinaFace
 import VerIDCommonTypes
-import FaceRecognitionArcFaceCloud
+import FaceRecognitionR300Cloud
 import FaceCapture
 
 struct ContentView: View {
@@ -129,9 +129,9 @@ enum Route: Hashable {
     case tips
 }
 
-let faceRecognition: FaceRecognitionArcFace = {
+let faceRecognition: FaceRecognitionR300 = {
     if let apiKey = Bundle.main.object(forInfoDictionaryKey: "FaceRecognitionApiKey") as? String, let urlString = Bundle.main.object(forInfoDictionaryKey: "FaceRecognitionUrl") as? String, let url = URL(string: urlString) {
-        return FaceRecognitionArcFace(apiKey: apiKey, url: url)
+        return FaceRecognitionR300(apiKey: apiKey, url: url)
     } else {
         fatalError()
     }
